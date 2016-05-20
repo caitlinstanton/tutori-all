@@ -133,5 +133,6 @@
 <h2>Flow of Site</h2>
 <ul>
 	<li>Select tutor, tutee, administrator/school account, or to create a new account</li>
-	<li>Sign up/create account using Google 
+	<li>Sign up/create account using Google</li>
+	<li>Ask for account information</li>
 </ul>
