@@ -1,0 +1,16 @@
+import time
+
+def log(user, message):
+    try:
+        logFile = open("logs/"+user+".txt","a")
+        currentTime = time.strftime("%c")
+        print "time generated"
+        logFile.write(currentTime+": "+message+"\n")
+        logFile.close()
+        return True
+    except:
+        return False
+
+print log("jion@plswork.gov","IT WORKED")
+    
+#print time.strftime("%c")
