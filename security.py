@@ -31,7 +31,7 @@ def createAccount(username, password, counselor, homeroom, firstName, lastName):
          return "Account creation failed"
 
 #verifies an email address using random code generated during account creatio
-def verify(username, code):
+def verifyUser(username, code):
    try:
       user = db.users.find({"username" : username})[0]
       if user["verificationCode"] == code:
@@ -50,7 +50,7 @@ def verify(username, code):
 def addUser(username, password, counselor, homeroom, firstName, lastName, emailVerificationCode):
    print "addUser called"
    try:
-      user = {"username": username, "hash": hashPass(password), "verificationCode": "", "isVerified": False,
+      user = {"username": username, "hash": hashPass(password), "verificationCode": emailVerificationCode, "isVerified": False,
               "credits": {}, "isTutor": True, "classes": {},
               "guidanceCounselor": counselor, "homeRoom": homeroom,
               "frees":[], "goodClasses":[],
@@ -108,7 +108,8 @@ def hashPass(password):
 def verify(password, hashpass):
    return pbkdf2_sha256.verify(password,hashpass)
 
-#print createAccount("jijiglobe@yahoo.com", "passpass", "blumm", "7RR", "Jion", "Fairchild")
-print authenticate("jijiglobe@yahoo.com","passpass")
-print verify("jijiglobe@yahoo.com","1OO2nYwIlyForyaOe2px")
-print authenticate("jijiglobe@yahoo.com","passpass")
+#print createAccount("jijiglobe@gmail.com", "passpass", "blumm", "7RR", "Jion", "Fairchild")
+
+print authenticate("jijiglobe@gmail.com","passpass")
+print verifyUser("jijiglobe@gmail.com","s92nF5YLddhfcc0S2ing")
+print authenticate("jijiglobe@gmail.com","passpass")
