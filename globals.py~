@@ -1,4 +1,0 @@
-numPeriods = 10
-
-accountCreationEmail = """Dear %s, 
-    Stuyvesant High School Arista has received a request to create an account with this email address. If you did not make this request, please ignore this email. If you did make this request, you are required to verify your email before your account may be used. please follow

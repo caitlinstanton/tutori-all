@@ -18,15 +18,31 @@ def createAccount(username, password, counselor, homeroom, firstName, lastName):
       code = generateRandomString(20)
       if addUser(username, password, counselor, homeroom, firstName, lastName, code):
          log(username, "account created")
+         email(username,"Stuy Arista Account Creation",accountCreationEmail % (firstName, code))
          return "Account creation successful"
       else:
          log("sys","an unknown error accured during account creation")
          return "Account creation failed"
 
+#verifies an email address using random code generated during account creatio
+def verify(username, code):
+   try:
+      user = db.users.find({"username" : username})[0]
+      if user["verificationCode"] == code:
+         log(username,"account verified successully")
+         return True
+      else:
+         log(username,"account verification failed; incorrect verification code")
+         return False
+   except:
+      log(username,"unknown account verification error occurred")
+      return False
+
 #Adds a user to database
 def addUser(username, password, counselor, homeroom, firstName, LastName, emailVerificationCode):
    try:
-      user = {"username": username, "hash": hashPass(password), "credits": {}, "isTutor": True,"classes": {},
+      user = {"username": username, "hash": hashPass(password), "verificationCode": "",
+              "credits": {}, "isTutor": True,"classes": {},
               "guidanceCounselor": counselor,"homeRoom":homeroom,
               "frees":[],"goodClasses":[],
               "firstName": firstName, "lastName":lastName}
