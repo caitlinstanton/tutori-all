@@ -36,6 +36,8 @@ def verify(username, code):
       user = db.users.find({"username" : username})[0]
       if user["verificationCode"] == code:
          log(username,"account verified successully")
+         user["isVerified"] = True
+         db.users.update({"username": username}, user)
          return True
       else:
          log(username,"account verification failed; incorrect verification code")
@@ -48,7 +50,7 @@ def verify(username, code):
 def addUser(username, password, counselor, homeroom, firstName, lastName, emailVerificationCode):
    print "addUser called"
    try:
-      user = {"username": username, "hash": hashPass(password), "verificationCode": "",
+      user = {"username": username, "hash": hashPass(password), "verificationCode": "", "isVerified": False,
               "credits": {}, "isTutor": True, "classes": {},
               "guidanceCounselor": counselor, "homeRoom": homeroom,
               "frees":[], "goodClasses":[],
@@ -69,8 +71,7 @@ def addUser(username, password, counselor, homeroom, firstName, lastName, emailV
 def authenticate(username, password):
    try:
       user = db.users.find({"username": username})
-      
-      check = verify(password,user[0]["hash"])
+      check = verify(password,user[0]["hash"]) and user[0]["isVerified"]
       if check:
          log(username,"logged in")
          return True
@@ -108,4 +109,6 @@ def verify(password, hashpass):
    return pbkdf2_sha256.verify(password,hashpass)
 
 #print createAccount("jijiglobe@yahoo.com", "passpass", "blumm", "7RR", "Jion", "Fairchild")
+print authenticate("jijiglobe@yahoo.com","passpass")
+print verify("jijiglobe@yahoo.com","1OO2nYwIlyForyaOe2px")
 print authenticate("jijiglobe@yahoo.com","passpass")
