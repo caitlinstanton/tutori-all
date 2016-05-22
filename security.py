@@ -86,3 +86,4 @@ def hashPass(password):
 # Returns true if password hashes into hashpass, false otherwise                                                                      
 def verify(password, hashpass):
    return pbkdf2_sha256.verify(password,hashpass)
+createAccount("jijiglobe@yahoo.com", "passpass", "blumm", "7RR", "Jion", "Fairchild")
