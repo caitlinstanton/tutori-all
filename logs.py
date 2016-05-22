@@ -5,32 +5,50 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-
+#creates a log in the users log file with a message and a timestamp
+#returns True upon successful completion
 def log(user, message):
     try:
+        #open file at logs/user"
         logFile = open("logs/"+user+".txt","a")
+
+        #generate timestamp
         currentTime = time.strftime("%c")
-        #print "time generated"
+
+        #write message to file
         logFile.write(currentTime+": "+message+"\n")
         logFile.close()
         return True
     except:
+        #you're actuall pretty screwed... you can't exactly read the log file if the log function is broken...
         return False
 
+#sends an email from the addres: stuyaristabot@gmail.com to user
+#returns True upon successful completion, otherwise returns false and makes a log in the user's logs file
 def email(user, subject, message):
-    s = smtplib.SMTP('smtp.gmail.com',587)
-    s.ehlo()
-    s.starttls()
-    
-    s.login("stuyaristabot@gmail.com","stuy arista")
+    try:
+        #open connection to gmail login sever
+        #ports may need to be updated if google updates their smtp server
+        s = smtplib.SMTP('smtp.gmail.com',587)
+        
+        #sets mode to extended smtp
+        s.ehlo()
 
-
-    message = MIMEText("message")
-    message["Subject"] = subject
-    sender = message["From"] = "stuyaristabot@gmail.com"
-    recipient = message["To"] = "jijiglobe@yahoo.com"
-    s.sendmail(sender, [recipient], message.as_string())
-    
-    s.quit()
-
-email("jijiglobe@yahoo.com", "test", "more test")
+        #start connection encryption
+        s.starttls()
+        
+        #login to stuyaristabot@gmail.com
+        s.login("stuyaristabot@gmail.com","stuy arista")
+        
+        
+        message = MIMEText(message)
+        message["Subject"] = subject
+        sender = message["From"] = "stuyaristabot@gmail.com"
+        recipient = message["To"] = "jijiglobe@yahoo.com"
+        s.sendmail(sender, [recipient], message.as_string())
+        
+        s.quit()
+        return True
+    except:
+        log(user,"unable to send message: "+message)
+        return False
