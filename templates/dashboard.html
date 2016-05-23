@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="../static/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Tutori-all</title>
+	<title>Tutori-All</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -22,8 +22,8 @@
     <link href="../static/css/paper-dashboard.css" rel="stylesheet"/>
 
 
-    <!--  CSS for Demo Purpose, don't include it in your project     -
-    <link href="../static/css/demo.css" rel="stylesheet" />-->
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
 
 
     <!--  Fonts and icons     -->
@@ -44,19 +44,19 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="base.html" class="simple-text">
-                    Tutori-all
+                <a href="/" class="simple-text">
+                    Tutori-All
                 </a>
             </div>
 
             <ul class="nav">
-                <li>
+                <li class="active">
                     <a href="dashboard.html">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="user.html">
                         <i class="ti-user"></i>
                         <p>User Profile</p>
@@ -69,13 +69,31 @@
                     </a>
                 </li>
                 <li>
+                    <a href="typography.html">
+                        <i class="ti-text"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="ti-map"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
                     <a href="notifications.html">
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
             </ul>
-        </div>
+    	</div>
     </div>
 
     <div class="main-panel">
@@ -311,7 +329,7 @@
                 <nav class="pull-left">
                     <ul>
 
-                        <li>
+                        <!-- <li>
                             <a href="http://www.creative-tim.com">
                                 Creative Tim
                             </a>
@@ -325,11 +343,11 @@
                             <a href="http://www.creative-tim.com/license">
                                 Licenses
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href={{url_for('base')}}>Creative Tim</a>
                 </div>
             </div>
         </footer>
@@ -367,14 +385,14 @@
 
         	demo.initChartist();
 
-        	$.notify({
-            	icon: 'ti-gift',
-            	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
-
-            },{
-                type: 'success',
-                timer: 4000
-            });
+        	// $.notify({
+          //   	icon: 'ti-gift',
+          //   	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+					//
+          //   },{
+          //       type: 'success',
+          //       timer: 4000
+          //   });
 
     	});
 	</script>
