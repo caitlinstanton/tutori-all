@@ -55,7 +55,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         counselor = request.form['guidanceCounselor']
-        homeroom = request.form['homeroom']
+        homeroom = request.form['homeroomA'] + request.form['homeroomB']
         firstName = request.form['firstName']
         lastName = request.form['lastName']
 
@@ -67,7 +67,7 @@ def register():
             account = createAccount(username, password, counselor, homeroom, firstName, lastName)
             if (not account): #user already existed in the database.
 				return render_template("login.html#signup", err="Account creation not successful")
-			return redirect(url_for('login'))
+            return redirect(url_for('login'))
     else:
         return render_template("login.html#signup")
 
