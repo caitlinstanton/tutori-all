@@ -24,7 +24,7 @@ def home():
     #The default location for html in flask is /templates so if you put an html file in the /templates directory
     #You can access it easily
     #This code returns the website stored in main.html
-    return render_template("dashboard.html")
+    return render_template("base.html")
 
 
 @app.route('/login', methods=['GET', 'POST'])
