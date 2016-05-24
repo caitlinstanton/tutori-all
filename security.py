@@ -30,7 +30,8 @@ def createAccount(username, password, counselor, homeroom, firstName, lastName):
          log("sys","an unknown error accured during account creation")
          return False
 
-#verifies an email address using random code generated during account creatio
+#verifies an email address using random code generated during account creation
+#returns username upon successful completion, returns empty string otherwise
 def verifyUser(code):
    try:
       user = db.users.find({"verificationCode" : code})[0]
