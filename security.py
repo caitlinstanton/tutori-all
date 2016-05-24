@@ -53,7 +53,7 @@ def addUser(username, password, counselor, homeroom, firstName, lastName, emailV
       user = {"username": username, "hash": hashPass(password), "verificationCode": emailVerificationCode, "isVerified": False,
               "credits": {}, "isTutor": True, "classes": {},
               "guidanceCounselor": counselor, "homeRoom": homeroom,
-              "frees":[], "goodClasses":[],
+              "frees":[], "goodClasses":[],"numTuts": 0,
               "firstName": firstName, "lastName":lastName}
 
       print "user dict instantiated"
