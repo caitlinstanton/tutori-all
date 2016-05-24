@@ -71,6 +71,15 @@ def register():
     else:
         return render_template("login.html#signup")
 
+@app.route('/verify', methods = ['GET', 'POST'])
+def verify():
+    if request.method == "POST":
+        code = request.form['code']
+        if (verifyUser(username,code) == True):
+            return render_template("user.html")
+        else:
+            return render_template("verify.html", err="Error, verification code invalid")
+            
 #This code checks that you are running this in the main function
 #Someone else imports this code because they want to use a function you wrote, the following code won't execute
 if __name__ == '__main__':
