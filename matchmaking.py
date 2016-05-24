@@ -43,18 +43,30 @@ def getGoodClassList(username):
     except:
         log(username, "unable to retrieve good class list")
 
-def getTutorList(classname):
+#returns true if the lists have at least one element in common
+def listHasMatch(list1, list2):
+    try:
+        for x in list1:
+            if x in list2:
+                return True
+            return False
+    except:
+        return False
+
+#gets a list of tutors who are comfortable tutoring in classname, and have a free period matching at least one period listing in freesList
+def getTutorList(classname, freesList):
     try:
         ans = []
         tutors = db.users.find({})
         for x in tutors:
-            if x["numTuts"] > 0 and classname in x["goodClasses"]:
+            if x["numTuts"] > 0 and classname in x["goodClasses"] and listHasMatch(freesList,x["frees"]):
                 ans.append(x)
         return ans
     except:
         return []
 
-
+#returns a list of all the tutors that have the matching teacher from the classMatchList
+#returns the empty list of none are found
 def findTeacherMatches(classMatchList, teacherName):
     try:
         ans = []
@@ -65,7 +77,15 @@ def findTeacherMatches(classMatchList, teacherName):
     except:
         return []
 
+#chooses a random tutor that is willing to teach className, and has a free period listed in freesList
+#Will pick a tutor that has the listed teacher, if one is available
+#Returns the empty list if no tutors are available
 def pickTutor(className, teacherName, freesList):
     try:
         tutorList = getTutorList(className)
-        teacherMatches = 
+        teacherMatches = findTeacherMatches(tutorList, "teacherName")
+        if len(teacherMatches) > 0:
+            tutorList = teacherMatches
+        return random.choice(tutorList)
+    except:
+        return []
