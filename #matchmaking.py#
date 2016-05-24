@@ -43,7 +43,18 @@ def getGoodClassList(username):
     except:
         log(username, "unable to retrieve good class list")
 
-def getTutorList(classname):
+#returns true if the lists have at least one element in common
+def listHasMatch(list1, list2):
+    try:
+        for x in list1:
+            if x in list2:
+                return True
+            return False
+    except:
+        return False
+
+
+def getTutorList(classname, freesList):
     try:
         ans = []
         tutors = db.users.find({})
@@ -68,4 +79,7 @@ def findTeacherMatches(classMatchList, teacherName):
 def pickTutor(className, teacherName, freesList):
     try:
         tutorList = getTutorList(className)
-        teacherMatches = 
+        teacherMatches = findTeacherMatches(tutorList, "teacherName")
+        if len(teacherMatches) > 0:
+            tutorList = teacherMatches
+        
