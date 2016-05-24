@@ -2,6 +2,7 @@
 #then you will be able to import the following things into your code
 #they are a bunch of functions that you will learn how to use, though not all today
 from flask import Flask, render_template, session, request, redirect, url_for
+import security
 
 #__name__ is a python variable that returns the name of the function that is running it
 #__name__ will return "__main__" if the code is being run in the function it was originally written in
@@ -13,25 +14,62 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     #This function is called index() because usually the defualt page of a website is referred to as the index
-
     #for the purposes of this demo we're going to simply redirect to /page1
     return redirect('/home')
 
 
 @app.route('/home')
-def page1():
+def home():
     #This is Page1, we want to return the html of page1 as a website so it can be served to the client
     #The default location for html in flask is /templates so if you put an html file in the /templates directory
     #You can access it easily
     #This code returns the website stored in main.html
-    return render_template('base.html')
+    return render_template("base.html")
 
 
-@app.route('/page2')
-def page2():
-    #This is basically the same as page1 but returns page2
-    return render_template('other.html')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
 
+        logged_in = security.authenticate(username, password)
+        if logged_in:
+            session['logged_in'] = True
+            # session['userid'] = userid
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html#login", err="Incorrect password or username")
+    else:
+        return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    # session.pop('userid', None)
+    return redirect("login")
+
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        counselor = request.form['guidanceCounselor']
+        homeroom = request.form['homeroomA'] + request.form['homeroomB']
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
+
+        if (request.form['password2'] != password):
+            return render_template("login.html#signup", err="Error, passwords are not the same")
+        else:
+			#print username + " " + password
+			#addedUser = utils.addUser(username, password) #boolean if user could be added
+            account = createAccount(username, password, counselor, homeroom, firstName, lastName)
+            if (not account): #user already existed in the database.
+				return render_template("login.html#signup", err="Account creation not successful")
+            return redirect(url_for('login'))
+    else:
+        return render_template("login.html#signup")
 
 #This code checks that you are running this in the main function
 #Someone else imports this code because they want to use a function you wrote, the following code won't execute
