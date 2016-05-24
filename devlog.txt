@@ -1,0 +1,17 @@
+5/15: Jion: Added base files stolen from previous projects to create baseline framework for project
+
+5/16: Jion: Added basic security functions using pbkdf2 hashing, code untested
+
+5/19: Jion: Added system logging functionality to track errors with timestamps and associated users.
+      	    Implemented logging functionality to security functions, catching all possible exceptions
+
+5/21: Jion: Added mailbot functionality to log.py
+      	    Implemented email verification code to account creation,
+	    ported code from old repository to new private repository
+
+5/22: Jion: Finished testing and repairing email functionality
+      	    Fully integrated email verification into account creation process
+	    
+5/23: Jion: Finished writing theoretically correct user matchmaking code.
+      	    Testing pending on when I feel like creating a ton of dummy accounts to test with lol
+	    T_T email verification makes this hard XD
