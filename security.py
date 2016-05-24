@@ -30,21 +30,23 @@ def createAccount(username, password, counselor, homeroom, firstName, lastName):
          log("sys","an unknown error accured during account creation")
          return False
 
-#verifies an email address using random code generated during account creatio
-def verifyUser(username, code):
+#verifies an email address using random code generated during account creation
+#returns username upon successful completion, returns empty string otherwise
+def verifyUser(code):
    try:
-      user = db.users.find({"username" : username})[0]
+      user = db.users.find({"verificationCode" : code})[0]
+      username = user["username"]
       if user["verificationCode"] == code:
          log(username,"account verified successully")
          user["isVerified"] = True
          db.users.update({"username": username}, user)
-         return True
+         return username
       else:
          log(username,"account verification failed; incorrect verification code")
-         return False
+         return ""
    except:
       log(username,"unknown account verification error occurred")
-      return False
+      return ""
 
 #Adds a user to database
 def addUser(username, password, counselor, homeroom, firstName, lastName, emailVerificationCode):
@@ -108,8 +110,10 @@ def hashPass(password):
 def verify(password, hashpass):
    return pbkdf2_sha256.verify(password,hashpass)
 
-#print createAccount("jijiglobe@gmail.com", "passpass", "blumm", "7RR", "Jion", "Fairchild")
-
-# print authenticate("jijiglobe@gmail.com","passpass")
-# print verifyUser("jijiglobe@gmail.com","s92nF5YLddhfcc0S2ing")
-# print authenticate("jijiglobe@gmail.com","passpass")
+#Requests a password reset, returns True upon successful completion
+def requestPasswordReset(username):
+   try:
+      user = db.users.find({"username": username})[0]
+      log(username,"Requested password reset")
+      code = generateRandomString(20)
+      

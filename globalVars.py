@@ -8,3 +8,12 @@ Your verification code: %s
 THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO CONTACT US AT THIS ADDRESS
 
 -Stuyvesant Arista Association"""
+
+passwordResetRequestEmail = """Dear %s,
+    Stuyvesant High School Arista Association has received a request to reset the password for the account corresponding to %s. If you did not make this request, please ignore this email, or contact the system administrator. If you would like to reset your password, please go to https://www.stuyarista.com/reset and enter the verification code below.
+
+Your verification code: %s
+
+THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPTE TO CONTACT US AT THIS ADDRESS
+
+-Stuyvesant Arista Association"""
