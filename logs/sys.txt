@@ -10,3 +10,7 @@ Sat May 21 23:49:24 2016: an unknown error accured during account creation
 Sat May 21 23:53:21 2016: an unknown error accured during account creation
 Sat May 21 23:54:08 2016: an unknown error accured during account creation
 Wed May 25 10:03:31 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 10:07:12 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 10:09:44 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 10:09:44 2016: all form data received
+Wed May 25 10:09:44 2016: account creation initialized

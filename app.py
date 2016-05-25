@@ -46,15 +46,17 @@ def register():
         homeroom = request.form['homeroomA'] + request.form['homeroomB']
         firstName = request.form['firstName']
         lastName = request.form['lastName']
-
+        log("sys","all form data received")
         if (request.form['password2'] != password):
+            log("sys","passwords didn't match, dickhead")
             return render_template("login.html#signup", err="Error, passwords are not the same")
         else:
 			#print username + " " + password
 			#addedUser = utils.addUser(username, password) #boolean if user could be added
+            log("sys", "account creation initialized")
             account = createAccount(username, password, counselor, homeroom, firstName, lastName)
-            if (not account): #user already existed in the database.
-				return render_template("login.html#signup", err="Account creation not successful")
+            if (account == "success"): #user already existed in the database.
+                return render_template("login.html#signup", err="Account creation not successful")
             return redirect(url_for('login'))
     else:
         return render_template("login.html#signup")

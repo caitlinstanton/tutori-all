@@ -15,21 +15,24 @@ def generateRandomString(length):
 
 #Runs full account creation script and returns message indicating operation status
 def createAccount(username, password, counselor, homeroom, firstName, lastName):
-   if checkUsername(username):
-      log(username, "attempted account creation")
-      return "Email in use"
-   else:
-      code = generateRandomString(20)
-      print "code generated"
-      if addUser(username, password, counselor, homeroom, firstName, lastName, code):
-         print "user added"
-         log(username, "account created")
-         email(username,"Stuy Arista Account Creation",accountCreationEmail % (firstName, code))
-         return True
+   try:
+      if checkUsername(username):
+         log(username, "attempted account creation")
+         return "Email in use"
       else:
-         log("sys","an unknown error accured during account creation")
-         return False
-
+         code = generateRandomString(20)
+         print "code generated"
+         if addUser(username, password, counselor, homeroom, firstName, lastName, code):
+            print "user added"
+            log(username, "account created")
+            email(username,"Stuy Arista Account Creation",accountCreationEmail % (firstName, code))
+            return "success"
+         else:
+            log("sys","an unknown error accured during account creation")
+            return "error"
+   except:
+      log(username, "this should never ever happen")
+      return "error"
 #verifies an email address using random code generated during account creation
 #returns username upon successful completion, returns empty string otherwise
 def verifyUser(code):
