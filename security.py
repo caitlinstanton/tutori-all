@@ -116,4 +116,5 @@ def requestPasswordReset(username):
       user = db.users.find({"username": username})[0]
       log(username,"Requested password reset")
       code = generateRandomString(20)
+      user["verificationCode"] = code
       
