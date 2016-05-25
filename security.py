@@ -117,4 +117,6 @@ def requestPasswordReset(username):
       log(username,"Requested password reset")
       code = generateRandomString(20)
       user["verificationCode"] = code
-      
+      pass
+   except:
+      pass

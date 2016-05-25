@@ -1,3 +1,4 @@
+from logs import log
 from flask import Flask, render_template, session, request, redirect, url_for
 import security
 
@@ -38,6 +39,7 @@ def logout():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == "POST":
+        log("sys","POST REQUEST RECEIVED AT /register")
         username = request.form['username']
         password = request.form['password']
         counselor = request.form['guidanceCounselor']
