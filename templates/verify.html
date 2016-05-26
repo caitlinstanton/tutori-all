@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Sign-Up/Login Form</title>
+    <title>Tutori-all</title>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="../static/css/normalize.css">
@@ -21,11 +21,19 @@
       <h2>{{err}}</h2>
       {% endif %}
 
-      <!--<h1>Verify Your Account</h1>
-      <h2 style="text-align:center;">Copy the verification code that was emailed to you here</h2>-->
+      <h1>Verify Your Account</h1>
+      <h2 style="text-align:center;">Check your email for the verification link</h2>
+      <br>
+      <h2 style="text-align:center;">Click on the link or copy the verification code that was emailed to you here</h2>
 
-      <form action="/" method="post" id="verifyForm">
-        <button class="button button-block"/>Click Here to Re-Register</button>
+      <form action="/verify" method="post" id="verifyForm">
+	<div class="field-wrap">
+              <label>
+                Verification Code
+              </label>
+              <input type="text" name="code" required autocomplete="off" />
+            </div>
+        <button class="button button-block">Click Here to VerifyRe-Register</button>
       </form>
 
     </div>
