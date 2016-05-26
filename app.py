@@ -1,6 +1,6 @@
 from logs import log
 from flask import Flask, render_template, session, request, redirect, url_for
-import security
+from security import *
 
 app = Flask(__name__)
 
@@ -41,22 +41,34 @@ def register():
     if request.method == "POST":
         log("sys","POST REQUEST RECEIVED AT /register")
         username = request.form['username']
+        print username
         password = request.form['password']
+        print password
         counselor = request.form['guidanceCounselor']
+        print counselor
         homeroom = request.form['homeroomA'] + request.form['homeroomB']
+        print homeroom
         firstName = request.form['firstName']
+        print firstName
         lastName = request.form['lastName']
+        print lastName
         log("sys","all form data received")
         if (request.form['password2'] != password):
             log("sys","passwords didn't match, dickhead")
+            print "passwords didnt match"
             return render_template("login.html#signup", err="Error, passwords are not the same")
+
         else:
 			#print username + " " + password
 			#addedUser = utils.addUser(username, password) #boolean if user could be added
             log("sys", "account creation initialized")
             account = createAccount(username, password, counselor, homeroom, firstName, lastName)
-            if (account == "success"): #user already existed in the database.
+            print "account creation successful"
+            if (account == "Email in use"): #user already existed in the database.
+                print "email in use"
+                log(username,"account creation successful")
                 return render_template("login.html#signup", err="Account creation not successful")
+            print "supposedly redirects to login"
             return redirect(url_for('login'))
     else:
         return render_template("login.html#signup")

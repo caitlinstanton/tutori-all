@@ -16,6 +16,7 @@ def generateRandomString(length):
 #Runs full account creation script and returns message indicating operation status
 def createAccount(username, password, counselor, homeroom, firstName, lastName):
    try:
+      print "create got run"
       if checkUsername(username):
          log(username, "attempted account creation")
          return "Email in use"

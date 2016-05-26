@@ -14,3 +14,24 @@ Wed May 25 10:07:12 2016: POST REQUEST RECEIVED AT /register
 Wed May 25 10:09:44 2016: POST REQUEST RECEIVED AT /register
 Wed May 25 10:09:44 2016: all form data received
 Wed May 25 10:09:44 2016: account creation initialized
+Wed May 25 11:33:57 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 11:33:57 2016: all form data received
+Wed May 25 11:33:57 2016: account creation initialized
+Wed May 25 11:37:38 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 11:37:38 2016: all form data received
+Wed May 25 11:37:38 2016: account creation initialized
+Wed May 25 11:43:05 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 11:43:05 2016: all form data received
+Wed May 25 11:43:05 2016: account creation initialized
+Wed May 25 11:46:40 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 11:46:40 2016: all form data received
+Wed May 25 11:46:40 2016: account creation initialized
+Wed May 25 20:44:58 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 20:44:58 2016: all form data received
+Wed May 25 20:44:58 2016: account creation initialized
+Wed May 25 20:47:00 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 20:47:00 2016: all form data received
+Wed May 25 20:47:00 2016: account creation initialized
+Wed May 25 20:49:01 2016: POST REQUEST RECEIVED AT /register
+Wed May 25 20:49:01 2016: all form data received
+Wed May 25 20:49:01 2016: account creation initialized
