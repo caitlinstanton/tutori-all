@@ -54,7 +54,6 @@ def verifyUser(code):
 
 #Adds a user to database
 def addUser(username, password, counselor, homeroom, firstName, lastName, emailVerificationCode):
-   print "addUser called"
    try:
       user = {"username": username, "hash": hashPass(password), "verificationCode": emailVerificationCode, "isVerified": False,
               "credits": {}, "isTutor": True, "classes": {},
@@ -62,11 +61,9 @@ def addUser(username, password, counselor, homeroom, firstName, lastName, emailV
               "frees":[], "goodClasses":[],"numTuts": 0,
               "firstName": firstName, "lastName":lastName}
 
-      print "user dict instantiated"
       try:
          db.users.insert(user)
       except:
-         print "I KNEW IT"
          return False
       return True
    except:
