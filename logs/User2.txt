@@ -16,3 +16,7 @@ Thu May 26 21:31:11 2016: attempted account creation
 Thu May 26 21:31:42 2016: attempted account creation
 Thu May 26 21:32:48 2016: account created
 Thu May 26 21:33:09 2016: attempted account creation
+Thu May 26 22:42:30 2016: updated free period list
+Thu May 26 22:42:30 2016: added physics taught by Thomas
+Thu May 26 22:42:34 2016: updated free period list
+Thu May 26 22:42:34 2016: added physics taught by Thomas

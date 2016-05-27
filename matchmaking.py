@@ -55,13 +55,14 @@ def getGoodClassList(username):
     except:
         log(username, "unable to retrieve good class list")
 
+
 #returns true if the lists have at least one element in common
 def listHasMatch(list1, list2):
     try:
         for x in list1:
             if x in list2:
                 return True
-            return False
+        return False
     except:
         return False
 
@@ -75,18 +76,20 @@ def hasClass(userdict,classname):
 #gets a list of tutors who are comfortable tutoring in classname, and have a free period matching at least one period listing in freesList
 def getTutorList(classname, freesList):
     try:
-        print "getTutorlist initialized"
+        print "BEEEP"
         ans = []
         tutors = db.users.find({})
         for x in tutors:
             #print x
             #print x["numTuts"] > 0
             #print hasClass(x,classname)#classname#x["goodClasses"]#classname in x["goodClasses"]
-            #print listHasMatch(freesList,x["frees"])
-
+            print x["frees"]
+            print freesList
+            print listHasMatch(freesList,x["frees"])
+            print "\n"
             if x["numTuts"] > 0 and hasClass(x,classname) and listHasMatch(freesList,x["frees"]):
                ans.append(x)
-        #print ans
+        print ans
         return ans
     except:
         print "getTutorList crashed"
@@ -122,10 +125,19 @@ def pickTutor(className, teacherName, freesList):
         teacherMatches = findTeacherMatches(tutorList, teacherName)
         #print "teacherMatches: "+ str(teacherMatches)
         for x in teacherMatches:
+            print "match found"
             tutorList = teacherMatches
             break
+        for x in tutorList:
+            print "tutor"
         return random.choice(tutorList)
     except:
         pass
-
-print pickTutor("physics","Ali",[2,4])
+"""
+u = "User2"
+makeTutor(u)
+chooseFrees(u,[1,2,3,5,7])
+addGoodClass(u,"physics","Thomas")
+changeValue(u,"numTuts",1)
+"""
+print pickTutor("physics","other",[1,2,3,4,5,6,7,8])
