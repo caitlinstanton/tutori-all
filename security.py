@@ -121,3 +121,6 @@ def requestPasswordReset(username):
       pass
    except:
       pass
+
+for x in range(10):
+   createUser("User"+str(x), "pass", "Wu", "7RR","Jion"+str(x), "Fair")
