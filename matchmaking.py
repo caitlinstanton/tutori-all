@@ -1,10 +1,14 @@
+import sys
 from security import *
+
+def changeValue(username,variable, value):
+    user = db.users.find({"username": username})[0]
+    user[variable] = value
+    db.users.update({"username":username}, user)
 
 #changes selected user into a tutor
 def makeTutor(username):
-    user = db.users.find({"username": username})[0]
-    user["isTutor"] = True
-    db.users.updat({"username":
+    changeValue(username,"isTutor",True)
     
 
 #adds a class to a users "classes that I wish to tutor in" list
@@ -26,11 +30,12 @@ def addGoodClass(username, classname, teacher):
 def chooseFrees(username, freesList):
     try:
         user = db.users.find({"username": username})[0]
-        users["frees"] = freesList
+        user ["frees"] = freesList
         db.users.update({"username":username},user)
         log(username, "updated free period list")
         return True
     except:
+        print sys.exc_info()[0]
         log(username, "error when updating frees")
         return False
 
@@ -60,16 +65,32 @@ def listHasMatch(list1, list2):
     except:
         return False
 
+def hasClass(userdict,classname):
+    for x in userdict["goodClasses"]:
+        if classname in x:
+            return True
+    return False
+
+
 #gets a list of tutors who are comfortable tutoring in classname, and have a free period matching at least one period listing in freesList
 def getTutorList(classname, freesList):
     try:
+        print "getTutorlist initialized"
         ans = []
         tutors = db.users.find({})
         for x in tutors:
-            if x["numTuts"] > 0 and classname in x["goodClasses"] and listHasMatch(freesList,x["frees"]):
-                ans.append(x)
+            #print x
+            #print x["numTuts"] > 0
+            #print hasClass(x,classname)#classname#x["goodClasses"]#classname in x["goodClasses"]
+            #print listHasMatch(freesList,x["frees"])
+
+            if x["numTuts"] > 0 and hasClass(x,classname) and listHasMatch(freesList,x["frees"]):
+               ans.append(x)
+        #print ans
         return ans
     except:
+        print "getTutorList crashed"
+        print sys.exc_info()[0]
         return []
 
 #returns a list of all the tutors that have the matching teacher from the classMatchList
@@ -78,21 +99,33 @@ def findTeacherMatches(classMatchList, teacherName):
     try:
         ans = []
         for tutor in classMatchList:
-            if teacherName in tutor["goodClasses"]:
+            #print teacherName
+            #print hasClass(tutor,teacherName)
+            if hasClass(tutor,teacherName):
                 ans.append(tutor)
+                print "appended"
         return ans
     except:
+        print sys.exc_info()[0]
         return []
+
 
 #chooses a random tutor that is willing to teach className, and has a free period listed in freesList
 #Will pick a tutor that has the listed teacher, if one is available
 #Returns the empty list if no tutors are available
 def pickTutor(className, teacherName, freesList):
     try:
-        tutorList = getTutorList(className)
-        teacherMatches = findTeacherMatches(tutorList, "teacherName")
-        if len(teacherMatches) > 0:
+        print "pick called"
+        tutorList = getTutorList(className,freesList)
+        print "tutorlist generated"
+        #print "TutorList: "+str(tutorList)
+        teacherMatches = findTeacherMatches(tutorList, teacherName)
+        #print "teacherMatches: "+ str(teacherMatches)
+        for x in teacherMatches:
             tutorList = teacherMatches
+            break
         return random.choice(tutorList)
     except:
-        return []
+        pass
+
+print pickTutor("physics","Ali",[2,4])
