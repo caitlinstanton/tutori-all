@@ -44,7 +44,7 @@ def email(user, subject, message):
         message = MIMEText(message)
         message["Subject"] = subject
         sender = message["From"] = "stuyaristabot@gmail.com"
-        recipient = message["To"] = "jijiglobe@yahoo.com"
+        recipient = message["To"] = user
         s.sendmail(sender, [recipient], message.as_string())
         
         s.quit()

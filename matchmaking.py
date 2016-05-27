@@ -134,10 +134,11 @@ def pickTutor(className, teacherName, freesList):
     except:
         pass
 """
-u = "User2"
+u = "User3"
 makeTutor(u)
 chooseFrees(u,[1,2,3,5,7])
-addGoodClass(u,"physics","Thomas")
+addGoodClass(u,"Econ","Thomas")
 changeValue(u,"numTuts",1)
 """
-print pickTutor("physics","other",[1,2,3,4,5,6,7,8])
+#addGoodClass("User1","Econ","Wisotsky")
+#print pickTutor("Econ","other",[1,2,3,4,5,6,7,8])

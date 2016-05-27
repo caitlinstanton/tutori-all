@@ -19,3 +19,7 @@ Thu May 26 21:33:09 2016: attempted account creation
 Thu May 26 21:48:05 2016: added physics taught by Ali
 Thu May 26 21:50:07 2016: error when updating frees
 Thu May 26 21:51:40 2016: updated free period list
+Thu May 26 23:48:02 2016: added Econ taught by Wisotsky
+Thu May 26 23:48:04 2016: added Econ taught by Wisotsky
+Thu May 26 23:48:05 2016: added Econ taught by Wisotsky
+Thu May 26 23:48:06 2016: added Econ taught by Wisotsky
