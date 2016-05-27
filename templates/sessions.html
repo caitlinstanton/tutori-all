@@ -66,7 +66,7 @@
                         <p>{{something about tutor/tutee}} List</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="sessions.html">
                         <i class="ti-check-box"></i>
                         <p>Complete a Session</p>
@@ -75,111 +75,72 @@
             </ul>
     	</div>
     </div>
-
     <div class="main-panel">
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-md-5">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="../static/img/background.jpg" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                  <img class="avatar border-white" src="../static/img/faces/face-2.jpg" alt="..."/>
-                                  <h4 class="title">{{username}}<br />
-                                     <a href="#"><small>{{email}}</small></a>
-                                  </h4>
-                                </div>
-                                <p class="description text-center">
-                                    {{ranking}} / 5
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-7">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Profile</h4>
+                                <h4 class="title">Striped Table</h4>
+                                <p class="category">Here is a subtitle for this table</p>
                             </div>
-                            <div class="content">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                         
-                                                <label>Phone Number</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" value="{{phonenumber}}">
-                                        </div>
-                                        <div class="col-md-4">
-                                                <input type="radio" name="contact" value="phone">Phone
-                                                <input type="radio" name="contact" value="email">Email
-                                                <input type="radio" name="contact" value="either" checked>No preference
-                                        </div>
-                                    </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Salary</th>
+                                        <th>Country</th>
+                                        <th>City</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Dakota Rice</td>
+                                            <td>$36,738</td>
+                                            <td>Niger</td>
+                                            <td>Oud-Turnhout</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Minerva Hooper</td>
+                                            <td>$23,789</td>
+                                            <td>Curaçao</td>
+                                            <td>Sinaai-Waas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Sage Rodriguez</td>
+                                            <td>$56,142</td>
+                                            <td>Netherlands</td>
+                                            <td>Baileux</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Philip Chaney</td>
+                                            <td>$38,735</td>
+                                            <td>Korea, South</td>
+                                            <td>Overland Park</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Doris Greene</td>
+                                            <td>$63,542</td>
+                                            <td>Malawi</td>
+                                            <td>Feldkirchen in Kärnten</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Mason Porter</td>
+                                            <td>$78,615</td>
+                                            <td>Chile</td>
+                                            <td>Gloucester</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Country</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" value="Australia">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Postal Code</label>
-                                                <input type="number" class="form-control border-input" placeholder="ZIP Code">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Me</label>
-                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
-You doubt I'll bother, reading into it
-I'll probably won't, left to my own devices
-But that's the difference in our opinions.</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -188,7 +149,6 @@ But that's the difference in our opinions.</textarea>
                 </div>
             </div>
         </div>
-
 
         <footer class="footer">
             <div class="container-fluid">
