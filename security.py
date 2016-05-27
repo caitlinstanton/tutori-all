@@ -88,13 +88,14 @@ def authenticate(username, password):
 #Returns boolean indicating whether a certain username is taken
 def checkUsername(username):
    try:
-      user = db.users.find({"name": username})
-      if len(users >=1):
+      print "username checking"
+      user = db.users.find({"username": username})
+      print "users found"
+      for x in user:
          return True
-      else:
-         return False
-   except:
       return False
+   except:
+      return True
 
 #Removes user from the database
 def deleteUser(username):
@@ -122,5 +123,5 @@ def requestPasswordReset(username):
    except:
       pass
 
-for x in range(10):
-   createUser("User"+str(x), "pass", "Wu", "7RR","Jion"+str(x), "Fair")
+#for x in range(10):
+#   print createAccount("User"+str(x), "pass", "Wu", "7RR","Jion"+str(x), "Fair")

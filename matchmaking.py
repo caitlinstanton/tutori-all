@@ -1,5 +1,12 @@
 from security import *
 
+#changes selected user into a tutor
+def makeTutor(username):
+    user = db.users.find({"username": username})[0]
+    user["isTutor"] = True
+    db.users.updat({"username":
+    
+
 #adds a class to a users "classes that I wish to tutor in" list
 #classes are tuples that contain the name of the class, and the teacher they had
 def addGoodClass(username, classname, teacher):

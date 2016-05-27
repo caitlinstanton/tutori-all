@@ -1,0 +1,24 @@
+Thu May 26 21:04:22 2016: account created
+Thu May 26 21:06:06 2016: account created
+Thu May 26 21:11:18 2016: account created
+Thu May 26 21:11:29 2016: account created
+Thu May 26 21:12:09 2016: account created
+Thu May 26 21:12:22 2016: account created
+Thu May 26 21:12:22 2016: unable to send message: Dear Jion9, 
+    Stuyvesant High School Arista Association has received a request to create an account with this email address. If you did not make this request, please ignore this email. If you did make this request, you are required to verify your email before your account may be used. To verify your email, please go to https://www.stuyarista.com/verify?code=AFjwC0rnje6gKQIQcb71 and enter the the verification code below. Please do not share your verification code with anyone else.
+
+Your verification code: 
+
+THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO CONTACT US AT THIS ADDRESS
+
+-Stuyvesant Arista Association
+Thu May 26 21:13:35 2016: account created
+Thu May 26 21:27:16 2016: this should never ever happen
+Thu May 26 21:27:29 2016: attempted account creation
+Thu May 26 21:27:54 2016: attempted account creation
+Thu May 26 21:28:47 2016: attempted account creation
+Thu May 26 21:30:32 2016: attempted account creation
+Thu May 26 21:31:11 2016: attempted account creation
+Thu May 26 21:31:42 2016: attempted account creation
+Thu May 26 21:32:54 2016: account created
+Thu May 26 21:33:09 2016: attempted account creation
