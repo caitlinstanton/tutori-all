@@ -17,3 +17,16 @@ Your verification code: %s
 THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPTE TO CONTACT US AT THIS ADDRESS
 
 -Stuyvesant Arista Association"""
+
+classList = {"Regents Physics":("Wang","Majewski","Thomas","Akhmedov","Sharaf","Gorla","Strausser","Iam"),
+             "Regents Biology": ("Horenstein","Maggio","Tu","Papagayo","Quenzer","Banfield","Hill"),
+             "Regents Chemistry": ("Arora","Li","Ting","Kivi","Daves","Cork","Orlando","O'malley","Pluchino","Paik"),
+             "Integrated Algebra": ("Protass","Delatto","Fenyves"),
+             "Euclidean Geometry": ("Fenyves","Peng","Protass","Delatto","Avigdor","Butler","Wong","Chew"),
+             "Algebra 2 and Trigonometry": ("Kavanagh","Goldberg","Stonescue","Jumash","Jaye","Butler","Protass","Sterr","Stonescue","Katts"),
+             "Pre-Calculus": ("Wong", "Maksudian", "Jaishankar", "Sterr","Stern","Rubenstein","Chew","Ku","Glen"),
+             "Regents World History 1-2": ("Valentin","Tillman","Garcia","Firdman","Berman","Dunkel","Waxman","Badgeley"),
+             "Regents Workd History 2-4": ("Berman","Madden","Shuman","Plafker","Hanna","Suri","Greenwald"),
+             "Regents US History": ("Kennedy","Brando","Valentin","Jezer","Wisotsky"),
+             "AP US History": ("Samdler","Stern","Greez","Greenwald","Hanna"),
+             "AP European History": ("Dunkel","Hanna")}
