@@ -1,6 +1,7 @@
 import sys
 from security import *
 
+#changes the value of a user variable
 def changeValue(username,variable, value):
     user = db.users.find({"username": username})[0]
     user[variable] = value

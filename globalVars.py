@@ -14,9 +14,19 @@ passwordResetRequestEmail = """Dear %s,
 
 Your verification code: %s
 
-THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPTE TO CONTACT US AT THIS ADDRESS
+THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO CONTACT US AT THIS ADDRESS
 
 -Stuyvesant Arista Association"""
+
+mismatchSessionEmail = """Dear %s
+There was an issue submitting your session with %s, because %s, please resolve this issue and resubmit the session form.
+
+
+THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO CONTACT US AT THIS ADDRESS
+
+-Stuyvesant Arista Association"""
+
+
 
 classList = {"Regents Physics":("Wang","Majewski","Thomas","Akhmedov","Sharaf","Gorla","Strausser","Iam"),
              "Regents Biology": ("Horenstein","Maggio","Tu","Papagayo","Quenzer","Banfield","Hill"),

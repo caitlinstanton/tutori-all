@@ -1,0 +1,74 @@
+from security.py import *
+import time
+from globalVars import *
+
+def getDate():
+    return time.strftime("%m-%d-%y")
+
+
+def getSessionName(tutorName, tutteeName, date):
+    return "%s - %s - %s" % (tutorName, tutteeName, date)
+
+def sessionExists(tutorName, tutteeName, Date):
+    try:
+        name = getSessionName(tutorName, tutteeName, Date)
+        x = db.users.find({"sessionName": name})[0]
+        return True
+    except:
+        return False
+
+def submitSessionAsTuttee(tutorName, tutteeName, length, date, location):
+    found = sessionExists(tutorName, tutteeName, date)
+    name = getSessionName(tutorName, tutteeName, date)
+    if found:
+        pass
+    else
+        sess = {"sessionName": name,
+                "tutorName": tutorName,
+                "tutteeName": tuteeName,
+                "date": date,
+                "tutteeLenght": length,
+                "tutteeLocation": location}
+        db.sessions.insert(sess)
+
+def submitSessionAsTutor(tutorName, tutteeName, length, date, location):
+    found = sessionExists(tutorName, tutteeName, date)
+    name = getSessionName(tutorName, tutteeName, date)
+    if found:
+        sess = db.users.find({"sessionName": name})[0]
+        sess["tutorLength"] = length
+        sess["tutorLocation"] = location
+        lengthMatch = not sess["tutorLength"] == sess["tutteeLength"]
+        locationMatch = not sess["tutorLocation"] == sess["tutteeLocation"]
+        tutorFirstName = db.users.find({"username",tutorName})[0]["firstName"]
+        tutteeFirstName = db.users.find({"username",tutteeName})[0]["firstName"]
+        
+        if lengthMatch and locationMatch:
+            #neither match
+            error = "the session lengths and locations you submitted did not match"
+            email(tutorName,missmatchSessionEmail % (tutorFirstName, tutteeFirstName, error))
+            email(tutteeName,missmatchSessionEmail % (tutteeFirstName, tutorFirstName, error))
+           
+
+        elif lengthMatch:
+            #length doesn't match
+            email(tutorName,missmatchSessionEmail % (tutorFirstName, tutteeFirstName, error))
+            email(tutteeName,missmatchSessionEmail % (tutteeFirstName, tutorFirstName, error))
+        elif locationMatch:
+            #locationMatch
+            email(tutorName,missmatchSessionEmail % (tutorFirstName, tutteeFirstName, error))
+            email(tutteeName,missmatchSessionEmail % (tutteeFirstName, tutorFirstName, error))
+        else:
+            #everything matches
+            sess["isConfirmed"] = True
+            db.sessions.update({"sessionName":name})
+            
+    else:
+        #no session currently found
+        sess = {"sessionName": name,
+                "tutorName": tutorName,
+                "tutteeName": tuteeName,
+                "date": date,
+                "tutorLength": length,
+                "tutorLocation": location}
+        db.sessions.insert(sess)
