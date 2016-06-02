@@ -38,3 +38,60 @@ Wed May 25 20:49:01 2016: account creation initialized
 Thu May 26 21:13:05 2016: an unknown error accured during account creation
 Thu May 26 21:13:07 2016: an unknown error accured during account creation
 Thu May 26 21:26:15 2016: an unknown error accured during account creation
+Wed Jun  1 19:34:56 2016: POST REQUEST RECEIVED AT /register
+Wed Jun  1 19:34:56 2016: all form data received
+Wed Jun  1 19:34:56 2016: account creation initialized
+Thu Jun  2 09:31:11 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:31:11 2016: all form data received
+Thu Jun  2 09:31:11 2016: account creation initialized
+Thu Jun  2 09:31:49 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:31:49 2016: all form data received
+Thu Jun  2 09:31:49 2016: account creation initialized
+Thu Jun  2 09:39:18 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:39:18 2016: all form data received
+Thu Jun  2 09:39:18 2016: account creation initialized
+Thu Jun  2 09:41:31 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:41:31 2016: all form data received
+Thu Jun  2 09:41:31 2016: account creation initialized
+Thu Jun  2 09:42:23 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:42:23 2016: all form data received
+Thu Jun  2 09:42:23 2016: account creation initialized
+Thu Jun  2 09:43:08 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:43:08 2016: all form data received
+Thu Jun  2 09:43:08 2016: account creation initialized
+Thu Jun  2 09:43:50 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:43:50 2016: all form data received
+Thu Jun  2 09:43:50 2016: account creation initialized
+Thu Jun  2 09:44:40 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:44:40 2016: all form data received
+Thu Jun  2 09:44:40 2016: account creation initialized
+Thu Jun  2 09:45:18 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:45:18 2016: all form data received
+Thu Jun  2 09:45:18 2016: account creation initialized
+Thu Jun  2 09:45:22 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:45:22 2016: all form data received
+Thu Jun  2 09:45:22 2016: account creation initialized
+Thu Jun  2 09:46:23 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:46:23 2016: all form data received
+Thu Jun  2 09:46:23 2016: account creation initialized
+Thu Jun  2 09:47:17 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:47:17 2016: all form data received
+Thu Jun  2 09:47:17 2016: account creation initialized
+Thu Jun  2 09:50:30 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:50:31 2016: all form data received
+Thu Jun  2 09:50:31 2016: account creation initialized
+Thu Jun  2 09:55:10 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:55:10 2016: all form data received
+Thu Jun  2 09:55:10 2016: account creation initialized
+Thu Jun  2 09:56:33 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 09:56:33 2016: all form data received
+Thu Jun  2 09:56:33 2016: account creation initialized
+Thu Jun  2 10:00:05 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 10:00:05 2016: all form data received
+Thu Jun  2 10:00:05 2016: account creation initialized
+Thu Jun  2 10:01:49 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 10:01:49 2016: all form data received
+Thu Jun  2 10:01:49 2016: account creation initialized
+Thu Jun  2 10:02:39 2016: POST REQUEST RECEIVED AT /register
+Thu Jun  2 10:02:39 2016: all form data received
+Thu Jun  2 10:02:39 2016: account creation initialized
