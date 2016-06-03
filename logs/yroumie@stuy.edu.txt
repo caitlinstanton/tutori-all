@@ -18,3 +18,8 @@ Thu Jun  2 09:56:33 2016: account created
 Thu Jun  2 10:00:06 2016: account created
 Thu Jun  2 10:01:49 2016: account created
 Thu Jun  2 10:02:39 2016: account created
+Fri Jun  3 09:56:49 2016: attempted account creation
+Fri Jun  3 09:56:49 2016: email in use
+Fri Jun  3 09:57:35 2016: account verified successully
+Fri Jun  3 10:08:48 2016: logged in
+Fri Jun  3 10:09:07 2016: logged in

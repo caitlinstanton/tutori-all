@@ -20,12 +20,19 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-
-        logged_in = security.authenticate(username, password)
+        print "start authenticate"
+        try:
+            logged_in = authenticate(username, password)
+        except:
+            print sys.exc_info()[0]
+        print "done authenticate"
         if logged_in:
+            print "logged_in = true"
             session['logged_in'] = True
+            print "add logged_in to session"
             # session['userid'] = userid
-            return redirect(url_for('home'))
+            return redirect(url_for('user'))
+            "redirect to user settings page"
         else:
             return render_template("login.html", err="Incorrect password or username")
     else:
@@ -66,18 +73,33 @@ def register():
             return render_template("login.html")
     except:
         log("sys",sys.exc_info()[0])
+
 @app.route('/verify', methods = ['GET', 'POST'])
 def verify():
-    if request.method == "POST":
-        if 'username' in session:
-            username = session['username']
-            code = request.form['code']
-            if (verifyUser(username,code) == True):
-                return render_template("user.html")
-            else:
-                return render_template("verify.html", err="Error, verification code invalid")
+    if request.method == "GET" and request.args.get('code') != None:
+        print "GET"
+        # username = session['username']
+        code = request.args.get('code')
+        print "code: %s" % code
+        username = verifyUser(code)
+        print "username: %s" % username
+        if (username != ""):
+            session['username'] = username
+            #return render_template("user.html")
+            return redirect(url_for('user'))
         else:
-            return render_template(url_for('login'))
+            return render_template("verify.html", err="Error, verification code invalid")
+    else:
+        return render_template("verify.html")
+
+@app.route('/user')
+def user():
+    username = session["username"]
+    user = db.user.find({"username":username})[0]
+    try:
+        return render_template("user.html")
+    except:
+        print sys.exc_info()[0]
 
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
