@@ -20,6 +20,12 @@
 <ul>
 	<li>clone the repository with git clone www.github.com/caitlinstanton/tutori-all</li>
 	<li>change directories into the tutori-all working directory with<code> cd tutori-all</code></li>
+	<li>if you would like the server to continue running when you close your terminal, you may want to use a program such as tmux to do so</li>
+		<ul>
+		<li>to install tmux, use <code>sudo apt-get install tmux</li>
+		<li>to run tmux, use <code>tmux</code></li>
+		<li>you may not continue with the rest of your steps, when you are finished, you may close the terminal. If you would like to terminate the program later, you can use<code> top</code> to kill it, or you may use <code>killall python</code></li>
+		</ul>
 	<li>install mongo with <code> sudo apt-get install -y mongodb-org</code></li>
 	<li>install python with <code> sudo apt-get install python</code></li>
 	<li>install pip with <code> sudo apt-get install python-pip</code></li>
