@@ -16,7 +16,18 @@
 </ul>
 
 <br>
-
+<h3>Instructions to launch</h3>
+<ul>
+	<li>install mongo with <code> sudo apt-get install -y mongodb-org</code></li>
+	<li>install python with <code> sudo apt-get install python</code></li>
+	<li>install pip with <code> sudo apt-get install python-pip</code></li>
+	<li>install flask with <code> sudo pip install flask</code></li>
+	<li>install passlib with <code> sudo pip install passlib</code></li>
+	<li>install pymongo with <code> sudo pip install pymongo</code></li>
+	<li>launch mongo with <code> mongod -dbpath [directory for file storage]</code></li>
+	<li>launch the application with <code> python app.py</code></li>
+</ul>
+<br>
 <h3>Ideas</h3>
 <ul>
 	<li>Put limit of amount of tutees a tutor can handle (3)</li>
