@@ -18,6 +18,8 @@
 <br>
 <h3>Instructions to launch</h3>
 <ul>
+	<li>clone the repository with git clone www.github.com/caitlinstanton/tutori-all</li>
+	<li>change directories into the tutori-all working directory with<code> cd tutori-all</code></li>
 	<li>install mongo with <code> sudo apt-get install -y mongodb-org</code></li>
 	<li>install python with <code> sudo apt-get install python</code></li>
 	<li>install pip with <code> sudo apt-get install python-pip</code></li>
