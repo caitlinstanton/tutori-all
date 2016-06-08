@@ -118,11 +118,12 @@ def user():
         numTuts = user['numTuts']
         classes = user['classes']
         guidanceCounselor = user['guidanceCounselor']
+        phonenumber = "1234567890"
         # try:
         #     return render_template("user.html")
         # except:
         #     print sys.exc_info()[0]
-        return render_template("user.html")
+        return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
     else:
         print "username is not in session"
         return redirect(url_for('login'))
