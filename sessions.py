@@ -3,13 +3,15 @@ import time
 from globalVars import *
 from matchmaking import *
 
+#gets the current date in the mm-dd-yy format
 def getDate():
     return time.strftime("%m-%d-%y")
 
-
+#gets a unique name to represent a session with the given parameters
 def getSessionName(tutorName, tutteeName, date):
     return "%s - %s - %s" % (tutorName, tutteeName, date)
 
+#returns a boolean representing whether a session with the given specs exists
 def sessionExists(tutorName, tutteeName, Date):
     try:
         name = getSessionName(tutorName, tutteeName, Date)
@@ -22,6 +24,10 @@ def sessionExists(tutorName, tutteeName, Date):
         print "ERROR BOIS"
         return False
 
+#session submission function that should be used by tuttees
+#  If the tutor has not yet submitted the session, it creates the session with the given information and "isConfirmed": False
+#  If the tutor has submitted the session, and the information matches, it will confirm the session by setting "isConfirmed": True
+#  If the tutor and tuttee submit different information, it'll email them about the issue and ask them to fix it.
 def submitSessionAsTuttee(tutorName, tutteeName, length, date, location):
     found = sessionExists(tutorName, tutteeName, date)
     name = getSessionName(tutorName, tutteeName, date)
@@ -81,6 +87,10 @@ def submitSessionAsTuttee(tutorName, tutteeName, length, date, location):
         db.sessions.insert(sess)
         return "session created"
 
+#session submission function that should be used by tutors
+#  If the tuttee has not yet submitted the session, it creates the session with the given information and "isConfirmed": False
+#  If the tuttee has submitted the session, and the information matches, it will confirm the session by setting "isConfirmed": True
+#  If the tuttee and tuttee submit different information, it'll email them about the issue and ask them to fix it.
 def submitSessionAsTutor(tutorName, tutteeName, length, date, location):
     found = sessionExists(tutorName, tutteeName, date)
     name = getSessionName(tutorName, tutteeName, date)
