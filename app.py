@@ -30,9 +30,15 @@ def login():
             print "logged_in = true"
             session['logged_in'] = True
             print "add logged_in to session"
+            session['username'] = username
+            print "add username to session"
             # session['userid'] = userid
-            return redirect(url_for('user'))
-            "redirect to user settings page"
+            try:
+                return redirect(url_for('user'))
+                #print "redirect to user settings page"
+                #return render_template("user.html")
+            except:
+                print sys.exc_info()[0]
         else:
             return render_template("login.html", err="Incorrect password or username")
     else:
@@ -41,6 +47,7 @@ def login():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
+    session.pop('username', None)
     # session.pop('userid', None)
     return redirect("login")
 
@@ -83,7 +90,7 @@ def verify():
         print "code: %s" % code
         username = verifyUser(code)
         print "username: %s" % username
-        if (username != ""):
+        if (username != "" and 'username' not in session):
             session['username'] = username
             #return render_template("user.html")
             return redirect(url_for('user'))
@@ -94,12 +101,32 @@ def verify():
 
 @app.route('/user')
 def user():
-    username = session["username"]
-    user = db.user.find({"username":username})[0]
-    try:
-        return render_template("user.html")
-    except:
-        print sys.exc_info()[0]
+    #session = requests.Session()
+    # username = session["username"]
+    # user = db.user.find({"username":username})[0]
+    if 'username' in session:
+        print "username is in session"
+        username = session['username']
+        user = getUser(username)
+        print user
+        firstName = user['firstName']
+        print "First Name: %s" % firstName
+        lastName = user['lastName']
+        homeRoom = user['homeRoom']
+        goodClasses = user['goodClasses']
+        credits = user['credits']
+        numTuts = user['numTuts']
+        classes = user['classes']
+        guidanceCounselor = user['guidanceCounselor']
+        phonenumber = "1234567890"
+        # try:
+        #     return render_template("user.html")
+        # except:
+        #     print sys.exc_info()[0]
+        return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
+    else:
+        print "username is not in session"
+        return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'

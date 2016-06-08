@@ -132,8 +132,8 @@
                             <div class="content">
                                 <div class="author">
                                   <img class="avatar border-white" src="../static/img/faces/face-2.jpg" alt="..."/>
-                                  <h4 class="title">username<br />
-                                     <a href="#"><small>email</small></a>
+                                  <h4 class="title">{{ firstName }} {{ lastName }}<br />
+                                     <a href="#"><small>{{ username }}</small></a>
                                   </h4>
                                 </div>
                                 <p class="description text-center">
@@ -153,7 +153,7 @@
                                         <div class="col-md-3">
 
                                                 <label>Phone Number</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" value="phonenumber">
+                                                <input type="text" class="form-control border-input" placeholder="Username" value="{{ phonenumber }}">
                                         </div>
                                     </div>
 
@@ -161,32 +161,34 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
+                                                <input type="text" class="form-control border-input" placeholder="Company" value="{{ firstName }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="{{ lastName }}">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
+																					Preferred Method of Contact
                                         <div class="form-group">
                                                 <input type="radio" name="contact" value="phone">Phone
                                                 <input type="radio" name="contact" value="email">Email
                                                 <input type="radio" name="contact" value="either" checked>No preference
 
-                                        </div></div>
+                                        </div>
+																			</div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
+                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="345 Chambers Street">
                                             </div>
                                         </div>
                                     </div>
@@ -195,19 +197,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
+                                                <input type="text" class="form-control border-input" placeholder="City" value="New York">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Country</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" value="Australia">
+                                                <label>State</label>
+                                                <input type="text" class="form-control border-input" placeholder="State" value="New York">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Postal Code</label>
-                                                <input type="number" class="form-control border-input" placeholder="ZIP Code">
+                                                <label>Zip Code</label>
+                                                <input type="number" class="form-control border-input" placeholder="Zip Code" value="10282">
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +218,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>About Me</label>
-                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
+                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="About">Oh so, your weak rhyme
 You doubt I'll bother, reading into it
 I'll probably won't, left to my own devices
 But that's the difference in our opinions.</textarea>
@@ -244,11 +246,11 @@ But that's the difference in our opinions.</textarea>
                     <ul>
 
                         <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
+                            <a href="http://www.stuyarista.com">
+                                Stuy Arista
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="http://blog.creative-tim.com">
                                Blog
                             </a>
@@ -257,11 +259,11 @@ But that's the difference in our opinions.</textarea>
                             <a href="http://www.creative-tim.com/license">
                                 Licenses
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
 				<div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.stuyarista.com">Stuy Arista</a>
                 </div>
             </div>
         </footer>
