@@ -150,7 +150,7 @@ print submitSessionAsTuttee("Jion1","Caitlin",1,"12-12-12","fuck")
 print submitSessionAsTutor("Jion1","Caitlin",1,"12-12-12","fuck")
 print "you should see session created, then match\n"
 
-"""
+
 print submitSessionAsTutor("Jion2","Caitlin",1,"12-12-12","fuc")
 print submitSessionAsTuttee("Jion2","Caitlin",1,"12-12-12","fuck")
 print "you should see session created, then location mismatch\n"
@@ -162,4 +162,4 @@ print "you should see session created, then length mismatch\n"
 print submitSessionAsTutor("Jion4","Caitlin",1,"12-12-12","fuc")
 print submitSessionAsTuttee("Jion4","Caitlin",2,"12-12-12","fuck")
 print "you should see session created, then double mismatch\n"
-
+"""
