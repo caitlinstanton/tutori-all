@@ -123,5 +123,18 @@ def requestPasswordReset(username):
    except:
       pass
 
+#returns a user as a dictionary with the following format
+"""
+      {"username": string, "hash": string, "verificationCode": some code, "isVerified": boolean,
+              "credits": dict, "isTutor": bool, "classes": dict,
+              "guidanceCounselor": string, "homeRoom": string,
+              "frees":list, "goodClasses":list,"numTuts": int,
+              "firstName": string, "lastName":string}"""
+def getUser(username):
+   try:
+      return db.users.find({"username":username})[0]
+   except:
+      return {}
+
 #for x in range(10):
 #   print createAccount("User"+str(x), "pass", "Wu", "7RR","Jion"+str(x), "Fair")
