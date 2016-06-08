@@ -26,7 +26,7 @@ THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO C
 
 -Stuyvesant Arista Association"""
 
-
+missmatchSessionEmail = mismatchSessionEmail
 
 classList = {"Regents Physics":("Wang","Majewski","Thomas","Akhmedov","Sharaf","Gorla","Strausser","Iam"),
              "Regents Biology": ("Horenstein","Maggio","Tu","Papagayo","Quenzer","Banfield","Hill"),
