@@ -126,18 +126,20 @@ def user():
         #status = "Tutee"
         #print "status: %s" % status
         if isTutor:
-            lookingFor = "Tutee"
+            # lookingFor = "Tutee"
+            return render_template("tutor.html", ranking = ranking, username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
         else:
-            lookingFor = "Tutor"
-        print "looking for: %s" % lookingFor
+            # lookingFor = "Tutor"
+            return render_template("tutee.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
+        #print "looking for: %s" % lookingFor
         # try:
         #     return render_template("user.html")
         # except:
         #     print sys.exc_info()[0]
-        try:
-            return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
-        except:
-            print sys.exc_info()[0]
+        # try:
+        #     return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
+        # except:
+        #     print sys.exc_info()[0]
     else:
         print "username is not in session"
         return redirect(url_for('login'))
