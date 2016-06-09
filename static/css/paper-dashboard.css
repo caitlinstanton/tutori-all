@@ -382,11 +382,20 @@ hr {
 .off-canvas-sidebar[data-background-color="white"]:before {
   background-color: #FFFFFF;
 }
+
 .sidebar .logo, .sidebar[data-background-color="white"] .logo,
 .off-canvas-sidebar .logo,
 .off-canvas-sidebar[data-background-color="white"] .logo {
   border-bottom: 1px solid rgba(102, 97, 91, 0.3);
 }
+
+@media screen and (max-width:990px) {
+.sidebar .logo, .sidebar[data-background-color="white"] .logo,
+.off-canvas-sidebar .logo,
+.off-canvas-sidebar[data-background-color="white"] .logo {
+  border-bottom: 1px solid transparent;
+}}
+
 .sidebar .logo p, .sidebar[data-background-color="white"] .logo p,
 .off-canvas-sidebar .logo p,
 .off-canvas-sidebar[data-background-color="white"] .logo p {
