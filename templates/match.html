@@ -21,7 +21,7 @@
     <!--  Paper Dashboard core CSS    -->
     <link href="../static/css/paper-dashboard.css" rel="stylesheet"/>
 
-    <!--  CSS for Demo Purpose, don't include it in your project     
+    <!--  CSS for Demo Purpose, don't include it in your project
     <link href="../static/css/demo.css" rel="stylesheet" />-->
 
     <!--  Fonts and icons     -->
@@ -57,13 +57,13 @@
                 <li class="active">
                     <a href="match.html">
                         <i class="ti-search"></i>
-                        <p>Find a {{something about tutor/tutee}}</p>
+                        <p>Find a {{ lookingFor }}</p>
                     </a>
                 </li>
                 <li>
                     <a href="pairings.html">
                         <i class="ti-view-list-alt"></i>
-                        <p>{{something about tutor/tutee}} List</p>
+                        <p>{{ lookingFor }} List</p>
                     </a>
                 </li>
                 <li>
@@ -80,7 +80,21 @@
 
         <div class="content">
             <div class="container-fluid">
-
+							<form action="/match" method="post" id="matchForm">
+								<select class="dropdown-menu" name="class" form="matchForm">
+									{% for key, list in classList.items() %}
+   									{% for key2, nested_value in list.items() %}
+      							<li><a href = "{{ nested_value }}">{{ nested_value }}</a> </li>
+   									{% endfor %}
+									{% endfor %}
+		            </select>
+								<select class="dropdown-menu" name="teacher" form="matchForm">
+		              <option value="Wu">Wu</option>
+		              <option value="Mui">Mui</option>
+		              <option value="Mahoney">Mahoney</option>
+		              <option value="Ngai">Ngai</option>
+		            </select>
+							</form>
             </div>
         </div>
 
@@ -91,11 +105,11 @@
                     <ul>
 
                         <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
+                            <a href="http://www.stuyarista.com">
+                                Stuy Arista
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="http://blog.creative-tim.com">
                                Blog
                             </a>
@@ -104,11 +118,11 @@
                             <a href="http://www.creative-tim.com/license">
                                 Licenses
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
 				<div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.stuyarista.com">Stuy Arista</a>
                 </div>
             </div>
         </footer>

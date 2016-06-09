@@ -44,6 +44,8 @@
             <div class="logo">
                 <a href="base.html" class="simple-text">
                     Tutori-all
+                    <br>
+                    TUTTEE
                 </a>
             </div>
 
@@ -55,21 +57,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/match">
+                    <a href="match.html">
                         <i class="ti-search"></i>
-                        <p>Find a {{ lookingFor }}</p>
+                        <p>Find a Tutor</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/pairings">
+                    <a href="pairings.html">
                         <i class="ti-view-list-alt"></i>
-                        <p>{{ lookingFor }} List</p>
+                        <p>Tutor List</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/sessions">
+                    <a href="submit.html">
+                        <i class="ti-save"></i>
+                        <p>Submit a Session</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="sessions.html">
                         <i class="ti-check-box"></i>
-                        <p>Complete a Session</p>
+                        <p>Check Your Sessions</p>
                     </a>
                 </li>
             </ul>
@@ -90,32 +98,7 @@
                     <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="match.html">
-                        <i class="ti-search"></i>
-                        <p>Find a {{ lookingFor }}</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="pairings.html">
-                        <i class="ti-view-list-alt"></i>
-                        <p>{{ lookingFor }} List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="sessions.html">
-                        <i class="ti-check-box"></i>
-                        <p>Complete a Session</p>
-                    </a>
-                </li>
-                    </ul>
+                    
 
                 </div>
             </div>
@@ -132,13 +115,10 @@
                             <div class="content">
                                 <div class="author">
                                   <img class="avatar border-white" src="../static/img/faces/face-2.jpg" alt="..."/>
-                                  <h4 class="title">{{ firstName }} {{ lastName }}<br />
-                                     <a href="#"><small>{{ username }}</small></a>
+                                  <h4 class="title">username<br />
+                                     <a href="#"><small>email</small></a>
                                   </h4>
                                 </div>
-                                <p class="description text-center">
-                                    ranking / 5
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -149,67 +129,18 @@
                             </div>
                             <div class="content">
                                 <form>
-                                    <div class="row">
-                                        <div class="col-md-3">
-
-                                                <label>Phone Number</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" value="{{ phonenumber }}">
-                                        </div>
-                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Company" value="{{ firstName }}">
+                                                <input type="text" class="form-control border-input" placeholder="First Name" id="firstName">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="{{ lastName }}">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-																					Preferred Method of Contact
-                                        <div class="form-group">
-                                                <input type="radio" name="contact" value="phone">Phone
-                                                <input type="radio" name="contact" value="email">Email
-                                                <input type="radio" name="contact" value="either" checked>No preference
-
-                                        </div>
-																			</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="345 Chambers Street">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" value="New York">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input type="text" class="form-control border-input" placeholder="State" value="New York">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input type="number" class="form-control border-input" placeholder="Zip Code" value="10282">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" id="lastName">
                                             </div>
                                         </div>
                                     </div>
@@ -217,16 +148,34 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>About Me</label>
-                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="About">Oh so, your weak rhyme
-You doubt I'll bother, reading into it
-I'll probably won't, left to my own devices
-But that's the difference in our opinions.</textarea>
+                                                <input type="radio" name="contact" value="phone" id="phone">Phone
+                                                <input type="radio" name="contact" value="email" id="email">Email
+                                                <input type="radio" name="contact" value="either" id="either" checked>No preference
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Email Address</label>
+                                                <input type="text" class="form-control border-input" placeholder="Email Address" id="email">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                <input type="text" class="form-control border-input" placeholder="Phone Number" id="phone">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                                        <button type="submit" id="updateProfile" class="btn btn-info btn-fill btn-wd">Update Profile</button>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
@@ -242,28 +191,8 @@ But that's the difference in our opinions.</textarea>
 
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-
-                        <li>
-                            <a href="http://www.stuyarista.com">
-                                Stuy Arista
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <a href="http://blog.creative-tim.com">
-                               Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
-                        </li> -->
-                    </ul>
-                </nav>
 				<div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.stuyarista.com">Stuy Arista</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Panoramic Falcons</a>
                 </div>
             </div>
         </footer>

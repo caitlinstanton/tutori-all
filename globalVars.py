@@ -1,9 +1,9 @@
 numPeriods = 10
 
-accountCreationEmail = """Dear %s, 
+accountCreationEmail = """Dear %s,
     Stuyvesant High School Arista Association has received a request to create an account with this email address. If you did not make this request, please ignore this email. If you did make this request, you are required to verify your email before your account may be used. To verify your email, please go to https://www.stuyarista.com/verify?code=%s and enter the the verification code below. Please do not share your verification code with anyone else.
 
-Your verification code: 
+Your verification code:
 
 THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO CONTACT US AT THIS ADDRESS
 
@@ -28,15 +28,15 @@ THIS EMAIL WAS SENT FROM AN AUTOMATED MAILING SERVER, PLEASE DO NOT ATTEMPT TO C
 
 missmatchSessionEmail = mismatchSessionEmail
 
-classList = {"Regents Physics":("Wang","Majewski","Thomas","Akhmedov","Sharaf","Gorla","Strausser","Iam"),
+classList = {"Regents Physics":("Wang","Majewski","Thomas","Akhmedov","Sharaf","Gorla","Strasser"),
              "Regents Biology": ("Horenstein","Maggio","Tu","Papagayo","Quenzer","Banfield","Hill"),
-             "Regents Chemistry": ("Arora","Li","Ting","Kivi","Daves","Cork","Orlando","O'malley","Pluchino","Paik"),
+             "Regents Chemistry": ("Arora","Li","Ting","Kivi","Daves","Cork","Orlando","O'Malley","Pluchino","Paik"),
              "Integrated Algebra": ("Protass","Delatto","Fenyves"),
              "Euclidean Geometry": ("Fenyves","Peng","Protass","Delatto","Avigdor","Butler","Wong","Chew"),
              "Algebra 2 and Trigonometry": ("Kavanagh","Goldberg","Stonescue","Jumash","Jaye","Butler","Protass","Sterr","Stonescue","Katts"),
              "Pre-Calculus": ("Wong", "Maksudian", "Jaishankar", "Sterr","Stern","Rubenstein","Chew","Ku","Glen"),
              "Regents World History 1-2": ("Valentin","Tillman","Garcia","Firdman","Berman","Dunkel","Waxman","Badgeley"),
-             "Regents Workd History 2-4": ("Berman","Madden","Shuman","Plafker","Hanna","Suri","Greenwald"),
+             "Regents World History 2-4": ("Berman","Madden","Shuman","Plafker","Hanna","Suri","Greenwald"),
              "Regents US History": ("Kennedy","Brando","Valentin","Jezer","Wisotsky"),
              "AP US History": ("Samdler","Stern","Greez","Greenwald","Hanna"),
              "AP European History": ("Dunkel","Hanna")}

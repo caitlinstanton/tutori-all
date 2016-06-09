@@ -2,6 +2,7 @@ from logs import log
 from flask import Flask, render_template, session, request, redirect, url_for
 from security import *
 import sys
+from globalVars import *
 
 app = Flask(__name__)
 
@@ -105,7 +106,7 @@ def user():
     # username = session["username"]
     # user = db.user.find({"username":username})[0]
     if 'username' in session:
-        print "username is in session"
+        # print "username is in session"
         username = session['username']
         user = getUser(username)
         print user
@@ -119,13 +120,47 @@ def user():
         classes = user['classes']
         guidanceCounselor = user['guidanceCounselor']
         phonenumber = "1234567890"
+        isTutor = user['isTutor']
+        print "isTutor: "
+        print isTutor
+        #status = "Tutee"
+        #print "status: %s" % status
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+        print "looking for: %s" % lookingFor
         # try:
         #     return render_template("user.html")
         # except:
         #     print sys.exc_info()[0]
-        return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
+        try:
+            return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
     else:
         print "username is not in session"
+        return redirect(url_for('login'))
+
+@app.route('/match')
+def match():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isTutor = user['isTutor']
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+        print "class list: "
+        #print classList
+        print classList
+        print classList['Pre-Calculus'][0]
+        try:
+            return render_template("match.html", lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
+    else:
         return redirect(url_for('login'))
 
 if __name__ == '__main__':
