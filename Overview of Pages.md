@@ -41,3 +41,4 @@ Admin dashboard --> all lists can be sorted by guidance counselor
 
 Change href links from html docs to routes
 Make /user return tuttee or tutor dashboard depending on isTutor
+Update images
