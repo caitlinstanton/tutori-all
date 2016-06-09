@@ -28,7 +28,7 @@ def sessionExists(tutorName, tuteeName, Date):
 #  If the tutor has not yet submitted the session, it creates the session with the given information and "isConfirmed": False
 #  If the tutor has submitted the session, and the information matches, it will confirm the session by setting "isConfirmed": True
 #  If the tutor and tutee submit different information, it'll email them about the issue and ask them to fix it.
-def submitSessionAstutee(tutorName, tuteeName, length, date, location):
+def submitSessionAsTutee(tutorName, tuteeName, length, date, location):
     found = sessionExists(tutorName, tuteeName, date)
     name = getSessionName(tutorName, tuteeName, date)
     if found:
@@ -49,24 +49,24 @@ def submitSessionAstutee(tutorName, tuteeName, length, date, location):
         if lengthMatch and locationMatch:
             #neither match
             error = "the session lengths and locations you submitted did not match"
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "length and location mismatch"
 
         elif lengthMatch:
             #length doesn't match
             error = "the session lengths you submitted did not match"
             #print error
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "length mismatch"
 
         elif locationMatch:
             #locationMatch
             error = "the locations you submitted did not match"
             #print error
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "location mismatch"
 
         else:
@@ -112,24 +112,24 @@ def submitSessionAsTutor(tutorName, tuteeName, length, date, location):
             #neither match
             error = "the session lengths and locations you submitted did not match"
             #print error
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "length and location mismatch"
 
         elif lengthMatch:
             #length doesn't match
             error = "the session lengths you submitted did not match"
             #print error
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "length mismatch"
 
         elif locationMatch:
             #locationMatch
             error = "the locations you submitted did not match"
             #print error
-            email(tutorName,"issue processing session",missmatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
-            email(tuteeName,"issue processing session",missmatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
+            email(tutorName,"issue processing session",mismatchSessionEmail % (tutorFirstName, tuteeFirstName, error))
+            email(tuteeName,"issue processing session",mismatchSessionEmail % (tuteeFirstName, tutorFirstName, error))
             return "location mismatch"
 
         else:
@@ -153,23 +153,23 @@ def submitSessionAsTutor(tutorName, tuteeName, length, date, location):
 
 db.sessions.remove({})
 """print submitSessionAsTutor("Jion","Caitlin",1,"12-12-12","fuck")
-print submitSessionAstutee("Jion","Caitlin",1,"12-12-12","fuck")
+print submitSessionAsTutee("Jion","Caitlin",1,"12-12-12","fuck")
 print "you should see session created, then match\n"
 
-print submitSessionAstutee("Jion1","Caitlin",1,"12-12-12","fuck")
+print submitSessionAsTutee("Jion1","Caitlin",1,"12-12-12","fuck")
 print submitSessionAsTutor("Jion1","Caitlin",1,"12-12-12","fuck")
 print "you should see session created, then match\n"
 
 
 print submitSessionAsTutor("Jion2","Caitlin",1,"12-12-12","fuc")
-print submitSessionAstutee("Jion2","Caitlin",1,"12-12-12","fuck")
+print submitSessionAsTutee("Jion2","Caitlin",1,"12-12-12","fuck")
 print "you should see session created, then location mismatch\n"
 
 print submitSessionAsTutor("Jion3","Caitlin",1,"12-12-12","fuck")
-print submitSessionAstutee("Jion3","Caitlin",2,"12-12-12","fuck")
+print submitSessionAsTutee("Jion3","Caitlin",2,"12-12-12","fuck")
 print "you should see session created, then length mismatch\n"
 
 print submitSessionAsTutor("Jion4","Caitlin",1,"12-12-12","fuc")
-print submitSessionAstutee("Jion4","Caitlin",2,"12-12-12","fuck")
+print submitSessionAsTutee("Jion4","Caitlin",2,"12-12-12","fuck")
 print "you should see session created, then double mismatch\n"
 """

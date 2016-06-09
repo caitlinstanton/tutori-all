@@ -166,6 +166,47 @@ def match():
     else:
         return redirect(url_for('login'))
 
+@app.route('/sessions')
+def sessions():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isTutor = user['isTutor']
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+
+        try:
+            return render_template("sessions.html", lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/submit')
+def submit():
+    return render_template("submit.html")
+
+@app.route('/pairings')
+def pairings():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isTutor = user['isTutor']
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+
+        try:
+            return render_template("pairings.html", lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
+    else:
+        return redirect(url_for('login'))
+
+
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
     app.run('0.0.0.0', port=8000)
