@@ -125,6 +125,7 @@ def user():
         print isTutor
         #status = "Tutee"
         #print "status: %s" % status
+        ranking = 5
         if isTutor:
             # lookingFor = "Tutee"
             return render_template("tutor.html", ranking = ranking, username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
