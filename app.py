@@ -113,15 +113,15 @@ def user():
         user = getUser(username)
         print user
         if request.method == "GET" and request.args.get("class") != None:
-            
+
             classname = request.args.get("class")
-            
+
             addGoodClass(username,classname,request.args.get(classname+"Teacher"))
-        
+
         if request.method == "GET" and request.args.get("free")!=None:
             #choose frees here
             pass
-        
+
         firstName = user['firstName']
         print "First Name: %s" % firstName
 
@@ -187,15 +187,16 @@ def sessions():
         username = session['username']
         user = getUser(username)
         isTutor = user['isTutor']
+        sessions = db.sessions.find({})
+        print "sessions: "
+        print sessions
         if isTutor:
             lookingFor = "Tutee"
-
         else:
             lookingFor = "Tutor"
-
         try:
             return render_template("sessions.html", lookingFor = lookingFor)
-        
+
         except:
             print sys.exc_info()[0]
     else:
@@ -219,7 +220,7 @@ def pairings():
             matches = getValue(username, "tutors")
         try:
             return render_template("pairings.html", lookingFor = lookingFor, matches = matches)
-        
+
         except:
             print sys.exc_info()[0]
     else:
