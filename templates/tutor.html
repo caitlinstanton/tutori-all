@@ -89,35 +89,7 @@
                     <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 <div class="collapse navbar-collapse">
-<<<<<<< HEAD
-=======
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="match.html">
-                        <i class="ti-search"></i>
-                        <p>Find a Tutee</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="pairings.html">
-                        <i class="ti-view-list-alt"></i>
-                        <p>Tutee List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="sessions.html">
-                        <i class="ti-check-box"></i>
-                        <p>Complete a Session</p>
-                    </a>
-                </li>
-                    </ul>
->>>>>>> 6e6d02db3ab61651650c43142cfe3787e329471d
+
 
                 </div>
             </div>
@@ -138,9 +110,6 @@
                                      <a href="#"><small>{{ username }}</small></a>
                                   </h4>
                                 </div>
-                                <p class="description text-center">
-                                    {{ ranking }} / 5
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -151,44 +120,30 @@
                             </div>
                             <div class="content">
                                 <form>
-<<<<<<< HEAD
-=======
-                                    <!-- <div class="row">
-                                        <div class="col-md-3">
-
-                                                <label>Phone Number</label>
-                                                <input type="text" class="form-control border-input" placeholder="Phone Number" value="{{ phonenumber }}">
-                                        </div>
-                                    </div> -->
->>>>>>> 6e6d02db3ab61651650c43142cfe3787e329471d
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-<<<<<<< HEAD
-                                                <input type="text" class="form-control border-input" placeholder="First Name" id="firstName">
-=======
+
                                                 <input type="text" class="form-control border-input" placeholder="First Name" value="{{ firstName }}">
->>>>>>> 6e6d02db3ab61651650c43142cfe3787e329471d
+
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-<<<<<<< HEAD
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" id="lastName">
-=======
+
                                                 <input type="text" class="form-control border-input" placeholder="Last Name" value="{{ lastName }}">
->>>>>>> 6e6d02db3ab61651650c43142cfe3787e329471d
+
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-																			Preferred Method of Contact
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label>Preferred Method of Contact</label>
                                                 <input type="radio" name="contact" value="phone" id="phone">Phone
                                                 <input type="radio" name="contact" value="email" id="email">Email
                                                 <input type="radio" name="contact" value="either" id="either" checked>No preference
@@ -197,16 +152,13 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email Address</label>
                                                 <input type="text" class="form-control border-input" placeholder="Email Address" id="email" value="{{ username }}">
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone Number</label>
                                                 <input type="text" class="form-control border-input" placeholder="Phone Number" id="phone" value="{{ phonenumber }}">
@@ -214,7 +166,207 @@
                                         </div>
                                     </div>
 
-                                    ADD SELECTION OF CLASSES, TEACHERS, AND FREES
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group" id="class">
+                                                <label>Classes You Can Tutor In</label>
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsPhysics">Regents Physics
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsBiology">Regents Biology
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsChemistry">Regents Chemistry
+                                                <br>
+                                                <input type="checkbox" name="class" value="integratedAlgebra">Integrated Algebra
+                                                <br>
+                                                <input type="checkbox" name="class" value="euclideanGeometry">Euclidean Geometry
+                                                <br>
+                                                <input type="checkbox" name="class" value="algebra2Trig">Algebra 2 & Trigonometry
+                                                <br>
+                                                <input type="checkbox" name="class" value="preCalculus">Pre-Calculus
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsWorld12">Regents World History 1-2
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsWorld34">Regents World History 3-4
+                                                <br>
+                                                <input type="checkbox" name="class" value="regentsUS">Regents US History
+                                                <br>
+                                                <input type="checkbox" name="class" value="apUS">AP US History
+                                                <br>
+                                                <input type="checkbox" name="class" value="apEuropean">AP European History
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" id="teacher">
+                                                <label>Teachers You Had</label>
+                                                <br>
+                                                <select name="regentsPhysicsTeacher">
+                                                    <option value="none">Regents Physics Teacher</option>
+                                                    <option value="wang">Wang</option>
+                                                    <option value="majewski">Majewski</option>
+                                                    <option value="thomas">Thomas</option>
+                                                    <option value="akhmedov">Akhmedov</option>
+                                                    <option value="sharaf">Sharaf</option>
+                                                    <option value="gorla">Gorla</option>
+                                                    <option value="strasser">Strasser</option>
+                                                </select>
+                                                <br>
+                                                <select name="regentsBiologyTeacher">
+                                                    <option value="none">Regents Biology Teacher</option>
+                                                    <option value="horenstein">Horenstein</option>
+                                                    <option value="maggio">Maggio</option>
+                                                    <option value="tu">Tu</option>
+                                                    <option value="papagayo">Papagayo</option>
+                                                    <option value="quenzer">Quenzer</option>
+                                                    <option value="banfield">Banfield</option>
+                                                    <option value="hill">Hill</option>
+                                                </select>
+                                                <br>
+                                                <select name="regentsChemistryTeacher">
+                                                    <option value="none">Regents Chemistry Teacher</option>
+                                                    <option value="arora">Arora</option>
+                                                    <option value="li">Li</option>
+                                                    <option value="ting">Ting</option>
+                                                    <option value="kivi">Kivi</option>
+                                                    <option value="daves">Daves</option>
+                                                    <option value="cork">Cork</option>
+                                                    <option value="orlando">Orlando</option>
+                                                    <option value="omalley">O'Malley</option>
+                                                    <option value="pluchino">Pluchino</option>
+                                                    <option value="paik">Paik</option>
+                                                </select>
+                                                <br>
+                                                <select name="integratedAlgebraTeacher">
+                                                    <option value="none">Integrated Algebra Teacher</option>
+                                                    <option value="protass">Protass</option>
+                                                    <option value="delatto">Delatto</option>
+                                                    <option value="fenyves">Fenyves</option>
+                                                </select>
+                                                <br>
+                                                <select name="euclideanGeometryTeacher">
+                                                    <option value="none">Euclidean Geometry</option>
+                                                    <option value="fenyves">Fenyves</option>
+                                                    <option value="peng">Peng</option>
+                                                    <option value="protass">Protass</option>
+                                                    <option value="delatto">Delatto</option>
+                                                    <option value="avigdor">Avigdor</option>
+                                                    <option value="butler">Butler</option>
+                                                    <option value="wong">Wong</option>
+                                                    <option value="chew">Chew</option>
+                                                </select>
+                                                <br>
+                                                <select name="alebra2TrigTeacher">
+                                                    <option value="none">Alebra 2/Trigonometry Teacher</option>
+                                                    <option value="kavanagh">Kavanagh</option>
+                                                    <option value="goldberg">Goldberg</option>
+                                                    <option value="stonescu">Stonescu</option>
+                                                    <option value="jumash">Jumash</option>
+                                                    <option value="jaye">Jaye</option>
+                                                    <option value="butler">Butler</option>
+                                                    <option value="protass">Protass</option>
+                                                    <option value="sterr">Sterr</option>
+                                                    <option value="katz">Katz</option>
+                                                </select>
+                                                <br>
+                                                <select name="preCalculusTeacher">
+                                                    <option value="none">Pre-Calculus Teacher</option>
+                                                    <option value="wong">Wong</option>
+                                                    <option value="maksudian">Maksudian</option>
+                                                    <option value="jaishankar">Jaishankar</option>
+                                                    <option value="sterr">Sterr</option>
+                                                    <option value="stern">Stern</option>
+                                                    <option value="rubenstein">Rubenstein</option>
+                                                    <option value="chew">Chew</option>
+                                                    <option value="ku">Ku</option>
+                                                </select>
+                                                <br>
+                                                <select name="regentsWorld12Teacher">
+                                                    <option value="none">Regents World History 1-2 Teacher</option>
+                                                    <option value="valentin">Valentin</option>
+                                                    <option value="tillman">Tillman</option>
+                                                    <option value="garcia">Garcia</option>
+                                                    <option value="firdman">Firdman</option>
+                                                    <option value="berman">Berman</option>
+                                                    <option value="dunkel">Dunkel</option>
+                                                    <option value="waxman">Waxman</option>
+                                                    <option vlaue="badgeley">Badgeley</option>
+                                                </select>
+                                                <br>
+                                                <select name="regentsWorld34Teacher">
+                                                    <option value="none">Regents World Teacher 3-4 Teacher</option>
+                                                    <option value="berman">Berman</option>
+                                                    <option value="madden">Madden</option>
+                                                    <option value="shuman">Shuman</option>
+                                                    <option value="plafker">Plafker</option>
+                                                    <option value="hanna">Hanna</option>
+                                                    <option value="suri">Suri</option>
+                                                    <option value="greenwald">Greenwald</option>
+                                                </select>
+                                                <br>
+                                                <select name="regentsUSTeacher">
+                                                    <option value="none">Regents US History</option>
+                                                    <option value="kennedy">Kennedy</option>
+                                                    <option value="brando">Brando</option>
+                                                    <option value="valentin">Valentin</option>
+                                                    <option value="jezer">Jezer</option>
+                                                    <option value="wisotsky">Wisotsky</option>
+                                                </select>
+                                                <br>
+                                                <select name="apUSTeacher">
+                                                    <option value="none">AP US History Teacher</option>
+                                                    <option value="sandler">Sandler</option>
+                                                    <option value="stern">Stern</option>
+                                                    <option value="greez">Greez</option>
+                                                    <option value="greenwald">Greenwald</option>
+                                                    <option value="hanna">Hanna</option>
+                                                </select>
+                                                <br>
+                                                <select name="apEuropeanTeacher">
+                                                    <option value="none">AP European History Teacher</option>
+                                                    <option value="dunkel">Dunkel</option>
+                                                    <option value="hanna">Hanna</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Times You're Free</label>
+                                                <br>
+                                                <input type="checkbox" name="free" value="1">1st Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="2">2nd Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="3">3rd Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="4">4th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="5">5th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="6">6th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="7">7th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="8">8th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="9">9th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="10">10th Period
+                                                <br>
+                                                <input type="checkbox" name="free" value="11">Monday (after school)
+                                                <br>
+                                                <input type="checkbox" name="free" value="12">Tuesday (after school)
+                                                <br>
+                                                <input type="checkbox" name="free" value="13">Wednesday (after school)
+                                                <br>
+                                                <input type="checkbox" name="free" value="14">Thursday (after school)
+                                                <br>
+                                                <input type="checkbox" name="free" value="15">Friday (after school)
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
