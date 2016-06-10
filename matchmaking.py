@@ -5,10 +5,22 @@ def addTutor(username,tutor):
     user = getUser(username)
     user["tutors"].append(tutor)
     db.users.update({"username":username}, user)
+    print user["tutors"]
 
-def addTuttee(username, tuttee):
+def addTutee(username, tutee):
     user = getUser(username)
-    user["tuttees"].append(tuttee)
+    user["tutees"].append(tutee)
+    db.users.update({"username":username},user)
+    print user["tutees"]
+    
+def removeTutor(username, tutor):
+    user = getUser(username)
+    user["tutors"].remove(tutor)
+    db.users.update({"username":username},user)
+    
+def removeTutee(username, tutee):
+    user = getUser(username)
+    user["tutees"].remove(tutee)
     db.users.update({"username":username},user)
 
 #changes the value of a user variable
@@ -153,3 +165,15 @@ changeValue(u,"numTuts",1)
 """
 #addGoodClass("User1","Econ","Wisotsky")
 #print pickTutor("Econ","other",[1,2,3,4,5,6,7,8])
+"""db.users.remove({})
+createAccount("jijiglobe","pass","wu","7rr","Jion","Fairchild")
+
+addTutor("jijiglobe","Jion")
+addTutee("jijiglobe","Jion")
+print getUser("jijiglobe")["tutors"]
+print getUser("jijiglobe")["tutees"]
+removeTutor("jijiglobe","Jion")
+removeTutee("jijiglobe","Jion")
+print getUser("jijiglobe")["tutors"]
+print getUser("jijiglobe")["tutees"]
+"""
