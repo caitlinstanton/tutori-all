@@ -66,7 +66,7 @@ def register():
             lastName = request.form['lastName']
             log("sys","all form data received")
             if (request.form['password2'] != password):
-                log(username,"passwords didn't match, dickhead")
+                log(username,"passwords didn't match")
                 return render_template("login.html", err="Error, passwords are not the same")
 
             else:
