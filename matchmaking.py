@@ -23,11 +23,18 @@ def removeTutee(username, tutee):
     user["tutees"].remove(tutee)
     db.users.update({"username":username},user)
 
-#changes the value of a user variable
+#changes the value of a user variabl
 def changeValue(username,variable, value):
     user = db.users.find({"username": username})[0]
     user[variable] = value
     db.users.update({"username":username}, user)
+
+def getValue(username,variable):
+    user = db.users.find({"username": username})[0]
+    return user[variable]
+
+
+
 
 #changes selected user into a tutor
 def makeTutor(username):
