@@ -1,6 +1,7 @@
 from logs import log
 from flask import Flask, render_template, session, request, redirect, url_for
 from security import *
+from matchmaking import *
 import sys
 from globalVars import *
 
@@ -174,6 +175,7 @@ def sessions():
         isTutor = user['isTutor']
         if isTutor:
             lookingFor = "Tutee"
+
         else:
             lookingFor = "Tutor"
 
@@ -196,11 +198,12 @@ def pairings():
         isTutor = user['isTutor']
         if isTutor:
             lookingFor = "Tutee"
+            matches = getValue(username, "tutees")
         else:
             lookingFor = "Tutor"
-
+            matches = getValue(username, "tutors")
         try:
-            return render_template("pairings.html", lookingFor = lookingFor)
+            return render_template("pairings.html", lookingFor = lookingFor, matches = matches)
         except:
             print sys.exc_info()[0]
     else:

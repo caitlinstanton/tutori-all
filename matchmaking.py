@@ -1,11 +1,40 @@
 import sys
 from security import *
 
-#changes the value of a user variable
+def addTutor(username,tutor):
+    user = getUser(username)
+    user["tutors"].append(tutor)
+    db.users.update({"username":username}, user)
+    print user["tutors"]
+
+def addTutee(username, tutee):
+    user = getUser(username)
+    user["tutees"].append(tutee)
+    db.users.update({"username":username},user)
+    print user["tutees"]
+    
+def removeTutor(username, tutor):
+    user = getUser(username)
+    user["tutors"].remove(tutor)
+    db.users.update({"username":username},user)
+    
+def removeTutee(username, tutee):
+    user = getUser(username)
+    user["tutees"].remove(tutee)
+    db.users.update({"username":username},user)
+
+#changes the value of a user variabl
 def changeValue(username,variable, value):
     user = db.users.find({"username": username})[0]
     user[variable] = value
     db.users.update({"username":username}, user)
+
+def getValue(username,variable):
+    user = db.users.find({"username": username})[0]
+    return user[variable]
+
+
+
 
 #changes selected user into a tutor
 def makeTutor(username):
@@ -143,3 +172,15 @@ changeValue(u,"numTuts",1)
 """
 #addGoodClass("User1","Econ","Wisotsky")
 #print pickTutor("Econ","other",[1,2,3,4,5,6,7,8])
+"""db.users.remove({})
+createAccount("jijiglobe","pass","wu","7rr","Jion","Fairchild")
+
+addTutor("jijiglobe","Jion")
+addTutee("jijiglobe","Jion")
+print getUser("jijiglobe")["tutors"]
+print getUser("jijiglobe")["tutees"]
+removeTutor("jijiglobe","Jion")
+removeTutee("jijiglobe","Jion")
+print getUser("jijiglobe")["tutors"]
+print getUser("jijiglobe")["tutees"]
+"""

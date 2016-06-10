@@ -56,7 +56,7 @@ def verifyUser(code):
 def addUser(username, password, counselor, homeroom, firstName, lastName, emailVerificationCode):
    try:
       user = {"username": username, "hash": hashPass(password), "verificationCode": emailVerificationCode, "isVerified": False,
-              "credits": {}, "isTutor": True, "classes": {},
+              "credits": {}, "isTutor": False, "classes": {},"tutors": [],"tutees": [],
               "guidanceCounselor": counselor, "homeRoom": homeroom,
               "frees":[], "goodClasses":[],"numTuts": 0,
               "firstName": firstName, "lastName":lastName}
