@@ -80,19 +80,10 @@
         <div class="content">
           <div class="container-fluid">
 	    <form action="/match" method="post" id="matchForm">
-	      <select class="dropdown-menu" name="class" form="matchForm">
-		{%for key, list in classList.iteritems() %}
-   		{%for key2, nested_value in list.items() %}
-      		<li><a href = "{{ nested_value }}">{{ nested_value }}</a> </li>
-   		{%endfor %}
-		{%endfor %}
-	      </select>
-	      <select class="dropdown-menu" name="teacher" form="matchForm">
-		<option value="Wu">Wu</option>
-		<option value="Mui">Mui</option>
-		<option value="Mahoney">Mahoney</option>
-		<option value="Ngai">Ngai</option>
-	      </select>
+          <div class="text-center">
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Find a Tutor</button>
+                                    </div>
+                                    <div class="clearfix"></div>
 	    </form>
           </div>
         </div>
