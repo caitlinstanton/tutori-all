@@ -1,6 +1,16 @@
 import sys
 from security import *
 
+def addTutor(username,tutor):
+    user = getUser(username)
+    user["tutors"].append(tutor)
+    db.users.update({"username":username}, user)
+
+def addTuttee(username, tuttee):
+    user = getUser(username)
+    user["tuttees"].append(tuttee)
+    db.users.update({"username":username},user)
+
 #changes the value of a user variable
 def changeValue(username,variable, value):
     user = db.users.find({"username": username})[0]
