@@ -79,11 +79,36 @@
 
         <div class="content">
           <div class="container-fluid">
-	    <form action="/match" method="post" id="matchForm">
-          <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Find a Tutor</button>
-                                    </div>
-                                    <div class="clearfix"></div>
+	    <form action="javascript:alert('helllloo');" method="post" id="matchForm">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" id="class">
+                    <label>What do you need help in?</label>
+                    <br>
+		    <select>
+                      <option value="regentsPhysics">Regents Physics</option>
+                      <option value="regentsBiology">Regents Biology</option>
+                      <option value="regentsChemistry">Regents Chemistry</option>
+                      <option value="integratedAlgebra">Integrated Algebra</option>
+                      <option value="euclideanGeometry">Euclidean Geometry</option>
+                      <option value="algebra2Trig">Algebra 2 & Trigonometry</option>
+                      <option value="preCalculus">Pre-Calculus</option>
+<!--
+                      <input type="checkbox" name="class" value="regentsWorld12">Regents World History 1-2
+                      <input type="checkbox" name="class" value="regentsWorld34">Regents World History 3-4
+                      <input type="checkbox" name="class" value="regentsUS">Regents US History
+                      <input type="checkbox" name="class" value="apUS">AP US History
+                      <input type="checkbox" name="class" value="apEuropean">AP European History -->
+		    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+		<button type="submit" class="btn btn-info btn-fill btn-wd">Find a Tutor</button>
+              </div>
+              <div class="clearfix"></div>
 	    </form>
           </div>
         </div>
