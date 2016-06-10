@@ -6,11 +6,11 @@ import sys
 from globalVars import *
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route('/')
 def index():
     return redirect('/home')
-
 
 @app.route('/home')
 def home():
@@ -106,13 +106,25 @@ def user():
     #session = requests.Session()
     # username = session["username"]
     # user = db.user.find({"username":username})[0]
+
     if 'username' in session:
         # print "username is in session"
         username = session['username']
         user = getUser(username)
         print user
+        if request.method == "GET" and request.args.get("class") != None:
+            
+            classname = request.args.get("class")
+            
+            addGoodClass(username,classname,request.args.get(classname+"Teacher"))
+        
+        if request.method == "GET" and request.args.get("free")!=None:
+            #choose frees here
+            pass
+        
         firstName = user['firstName']
         print "First Name: %s" % firstName
+
         lastName = user['lastName']
         homeRoom = user['homeRoom']
         goodClasses = user['goodClasses']
@@ -122,6 +134,7 @@ def user():
         guidanceCounselor = user['guidanceCounselor']
         phonenumber = "1234567890"
         isTutor = user['isTutor']
+
         print "isTutor: "
         print isTutor
         #status = "Tutee"
@@ -152,17 +165,18 @@ def match():
         username = session['username']
         user = getUser(username)
         isTutor = user['isTutor']
-        if isTutor:
-            lookingFor = "Tutee"
-        else:
-            lookingFor = "Tutor"
+
         print "class list: "
-        #print classList
+
         print classList
         print classList['Pre-Calculus'][0]
+
         try:
-            return render_template("match.html", lookingFor = lookingFor)
+            #return render_template("match.html")
+            return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
+
         except:
+            print "\n\n\n\n"
             print sys.exc_info()[0]
     else:
         return redirect(url_for('login'))
@@ -181,6 +195,7 @@ def sessions():
 
         try:
             return render_template("sessions.html", lookingFor = lookingFor)
+        
         except:
             print sys.exc_info()[0]
     else:
@@ -204,6 +219,7 @@ def pairings():
             matches = getValue(username, "tutors")
         try:
             return render_template("pairings.html", lookingFor = lookingFor, matches = matches)
+        
         except:
             print sys.exc_info()[0]
     else:

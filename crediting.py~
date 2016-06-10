@@ -1,0 +1,31 @@
+from security import *
+import time
+import datetime
+
+def initializeTrimesters(trimester1,trimester2):
+    db.globals.insert({"name":"trimesters", 
+                       "value":[getUnixTime(trimester1),getUnixTime(trimester2)] })
+
+def getTrimesterList():
+    return db.globals.find({"name":"trimesters"})[0]["value"]
+
+def addTrimester(date):
+    globalData = db.globals.find({"name":"trimesters"})[0]
+    trimesterList = getTrimesterList()
+    trimesterList.append(getUnixTime(date))
+    globalData["value"] = trimesterList
+    db.globals.update({"name":"trimesterList"}, globalData)
+    
+def changeTrimester(oldDate,newDate):
+    pass
+
+def getUnixTime(date):
+    return time.mktime(datetime.datetime.strptime(date, "%m-%d-%Y").timetuple())
+
+def getDate(unixTime):
+    return datetime.datetime.fromtimestamp(int(unixTime)).strftime('%m-%d-%Y')
+
+def addCredits(tutor,date,numCredits):
+    time = getUnixTime(date)
+    trimesterList = getTrimesterList()
+    
