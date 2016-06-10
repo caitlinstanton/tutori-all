@@ -125,19 +125,22 @@ def user():
         print isTutor
         #status = "Tutee"
         #print "status: %s" % status
+        ranking = 5
         if isTutor:
-            lookingFor = "Tutee"
+            # lookingFor = "Tutee"
+            return render_template("tutor.html", ranking = ranking, username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
         else:
-            lookingFor = "Tutor"
-        print "looking for: %s" % lookingFor
+            # lookingFor = "Tutor"
+            return render_template("tutee.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
+        #print "looking for: %s" % lookingFor
         # try:
         #     return render_template("user.html")
         # except:
         #     print sys.exc_info()[0]
-        try:
-            return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
-        except:
-            print sys.exc_info()[0]
+        # try:
+        #     return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
+        # except:
+        #     print sys.exc_info()[0]
     else:
         print "username is not in session"
         return redirect(url_for('login'))
@@ -162,6 +165,47 @@ def match():
             print sys.exc_info()[0]
     else:
         return redirect(url_for('login'))
+
+@app.route('/sessions')
+def sessions():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isTutor = user['isTutor']
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+
+        try:
+            return render_template("sessions.html", lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/submit')
+def submit():
+    return render_template("submit.html")
+
+@app.route('/pairings')
+def pairings():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isTutor = user['isTutor']
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+
+        try:
+            return render_template("pairings.html", lookingFor = lookingFor)
+        except:
+            print sys.exc_info()[0]
+    else:
+        return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'

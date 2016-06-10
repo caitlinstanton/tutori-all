@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-        <link rel="icon" type="image/png" sizes="96x96" href="../static/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="../static/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Tutori-all</title>
@@ -41,34 +41,42 @@
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="base.html" class="simple-text">
+                <a href="/home" class="simple-text">
                     Tutori-all
+                    <br>
+                    ADMIN
                 </a>
             </div>
 
             <ul class="nav">
                 <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
+                    <a href="adminPairings.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Pairings List</p>
                     </a>
                 </li>
                 <li>
-                    <a href="match.html">
-                        <i class="ti-search"></i>
-                        <p>Find a {{ lookingFor }}</p>
+                    <a href="adminSessions.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Sessions List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="adminRequests.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Requests List</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="pairings.html">
-                        <i class="ti-view-list-alt"></i>
-                        <p>{{ lookingFor }} List</p>
+                    <a href="adminCredits.html">
+                        <i class="ti-eye"></i>
+                        <p>Check Credits</p>
                     </a>
                 </li>
                 <li>
-                    <a href="sessions.html">
-                        <i class="ti-check-box"></i>
-                        <p>Complete a Session</p>
+                    <a href="adminTrimester.html">
+                        <i class="ti-timer"></i>
+                        <p>Update Trimester Dates</p>
                     </a>
                 </li>
             </ul>
@@ -77,14 +85,31 @@
 
     <div class="main-panel">
 
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+
+                </div>
+            </div>
+        </nav>
+
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Striped Table</h4>
-                                <p class="category">Here is a subtitle for this table</p>
+                                <h4 class="title">User Credits</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
