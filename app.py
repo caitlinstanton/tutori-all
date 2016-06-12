@@ -222,10 +222,18 @@ def sessions():
 
         if isTutor:
             lookingFor = "Tutee"
-            #sessions = db.users.find({"tutorName": username})[0]
+            try:
+                sessions = db.users.find({"tutorName": username})[0]
+            except:
+                sessions = "NONE"
+                print sys.exc_info()[0]
         else:
             lookingFor = "Tutor"
-            #sessions = db.users.find({"tuteeName": username})[0]
+            try:
+                sessions = db.users.find({"tuteeName": username})[0]
+            except:
+                sessions = "NONE"
+                print sys.exc_info()[0]
 
         print "sessions: "
         print sessions
