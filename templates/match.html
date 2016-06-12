@@ -62,7 +62,7 @@
             <li>
               <a href="/pairings">
                 <i class="ti-view-list-alt"></i>
-                <p> {{ lookingFor }}List</p>
+                <p>{{ lookingFor }} List</p>
               </a>
             </li>
             <li>
@@ -89,7 +89,19 @@
                   <div class="form-group" id="class">
                     <label>What do you need help in?</label>
                     <br>
-		    <select>
+
+                    <!-- <select id="class">
+                      {{% for class in classList %}}
+                      <option value="{{ class }}">{{ class }}</option>
+                      {{% endfor %}}
+                    </select>
+                    <select id="teacher">
+                      {{% for teacher in class %}}
+                      <option value="{{ class }}">{{ class }}</option>
+                      {{% endfor %}}
+                    </select> -->
+
+                    <select id="class">
                       <option value="regentsPhysics">Regents Physics</option>
                       <option value="regentsBiology">Regents Biology</option>
                       <option value="regentsChemistry">Regents Chemistry</option>
@@ -97,13 +109,25 @@
                       <option value="euclideanGeometry">Euclidean Geometry</option>
                       <option value="algebra2Trig">Algebra 2 & Trigonometry</option>
                       <option value="preCalculus">Pre-Calculus</option>
-<!--
+                    </select>
+                    <select id="teacher">
+                    </select>
+
+		    <!-- <select>
+                      <option value="regentsPhysics">Regents Physics</option>
+                      <option value="regentsBiology">Regents Biology</option>
+                      <option value="regentsChemistry">Regents Chemistry</option>
+                      <option value="integratedAlgebra">Integrated Algebra</option>
+                      <option value="euclideanGeometry">Euclidean Geometry</option>
+                      <option value="algebra2Trig">Algebra 2 & Trigonometry</option>
+                      <option value="preCalculus">Pre-Calculus</option>
+
                       <input type="checkbox" name="class" value="regentsWorld12">Regents World History 1-2
                       <input type="checkbox" name="class" value="regentsWorld34">Regents World History 3-4
                       <input type="checkbox" name="class" value="regentsUS">Regents US History
                       <input type="checkbox" name="class" value="apUS">AP US History
-                      <input type="checkbox" name="class" value="apEuropean">AP European History -->
-		    </select>
+                      <input type="checkbox" name="class" value="apEuropean">AP European History
+		    </select> -->
                   </div>
                 </div>
               </div>
@@ -172,4 +196,38 @@
   <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="../static/js/demo.js"></script>
 
+  <!-- Double dropdown menu -->
+  <script>
+    $("#class").change(function() {
+
+      var $dropdown = $(this);
+
+      $.getJSON("classList.json", function(data) {
+
+        var key = $dropdown.val();
+        var vals = [];
+
+        for x in data[key]:
+          vals += data[key][x]
+
+        // switch(key) {
+        //   case 'beverages':
+        //     vals = data.beverages.split(",");
+        //     break;
+        //   case 'snacks':
+        //     vals = data.snacks.split(",");
+        //     break;
+        //   case 'base':
+        //     vals = ['Please choose from above'];
+        // }
+
+        var $secondChoice = $("#teacher");
+        $secondChoice.empty();
+        $.each(vals, function(index, value) {
+          $secondChoice.append("<option>" + value + "</option>");
+        });
+
+      });
+      });
+  </script>
 </html>

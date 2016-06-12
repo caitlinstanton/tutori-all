@@ -4,6 +4,7 @@ from security import *
 from matchmaking import *
 import sys
 from globalVars import *
+import json, codecs
 
 app = Flask(__name__)
 app.debug = True
@@ -166,14 +167,27 @@ def match():
         user = getUser(username)
         isTutor = user['isTutor']
 
-        print "class list: "
+        if isTutor:
+            lookingFor = "Tutee"
+        else:
+            lookingFor = "Tutor"
+            
+        #print "class list: "
 
-        print classList
-        print classList['Pre-Calculus'][0]
+        #print classList
+        #print classList['Pre-Calculus'][0]
 
+        # for subject in classList:
+        #     for teacher in subject:
+        #
+            # try:
+            #     print classList[x][0]
+            # except:
+            #     print sys.exc_info()[0]
+            #     print "there was nothing"
         try:
-            #return render_template("match.html")
-            return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
+            return render_template("match.html", lookingFor = lookingFor)
+            #return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
 
         except:
             print "\n\n\n\n"
@@ -187,16 +201,19 @@ def sessions():
         username = session['username']
         user = getUser(username)
         isTutor = user['isTutor']
-        sessions = db.sessions.find({})
-        print "sessions: "
-        print sessions
+
         if isTutor:
             lookingFor = "Tutee"
+            #sessions = db.users.find({"tutorName": username})[0]
         else:
             lookingFor = "Tutor"
+            #sessions = db.users.find({"tuteeName": username})[0]
+
+        print "sessions: "
+        print sessions
+
         try:
             return render_template("sessions.html", lookingFor = lookingFor)
-
         except:
             print sys.exc_info()[0]
     else:
@@ -226,6 +243,10 @@ def pairings():
     else:
         return redirect(url_for('login'))
 
+
+def dictToJSON(dictionary):
+    with codecs.open('%s.json' % str(dictionary), 'w', 'utf8') as f:
+        f.write(json.dumps(dictionary, sort_keys = True, ensure_ascii=False))
 
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'

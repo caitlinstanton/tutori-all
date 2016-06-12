@@ -1,0 +1,14 @@
+{
+    "AP European History": ["Dunkel", "Hanna"],
+    "AP US History": ["Sandler", "Stern", "Greez", "Greenwald", "Hanna"],
+    "Algebra 2 and Trigonometry": ["Kavanagh", "Goldberg", "Stonescu", "Jumash", "Jaye", "Butler", "Protass", "Sterr", "Katts"],
+    "Euclidean Geometry": ["Fenyves", "Peng", "Protass", "Delatto", "Avigdor", "Butler", "Wong", "Chew"],
+    "Integrated Algebra": ["Protass", "Delatto", "Fenyves"],
+    "Pre-Calculus": ["Wong", "Maksudian", "Jaishankar", "Sterr", "Stern", "Rubenstein", "Chew", "Ku"],
+    "Regents Biology": ["Horenstein", "Maggio", "Tu", "Papagayo", "Quenzer", "Banfield", "Hill"],
+    "Regents Chemistry": ["Arora", "Li", "Ting", "Kivi", "Daves", "Cork", "Orlando", "O'Malley", "Pluchino", "Paik"],
+    "Regents Physics": ["Wang", "Majewski", "Thomas", "Akhmedov", "Sharaf", "Gorla", "Strasser"],
+    "Regents US History": ["Kennedy", "Brando", "Valentin", "Jezer", "Wisotsky"],
+    "Regents World History 1-2": ["Valentin", "Tillman", "Garcia", "Firdman", "Berman", "Dunkel", "Waxman", "Badgeley"],
+    "Regents World History 3-4": ["Berman", "Madden", "Shuman", "Plafker", "Hanna", "Suri", "Greenwald"]
+}
