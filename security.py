@@ -58,7 +58,7 @@ def addUser(username, password, counselor, homeroom, firstName, lastName, emailV
       user = {"username": username, "hash": hashPass(password), "verificationCode": emailVerificationCode, "isVerified": False,
               "credits": {}, "isTutor": False, "classes": {},"tutors": [],"tutees": [],
               "guidanceCounselor": counselor, "homeRoom": homeroom,
-              "frees":[], "goodClasses":[],"numTuts": 0,
+              "frees":[], "goodClasses":[],"numTuts": 0, "isAdmin": False,
               "firstName": firstName, "lastName":lastName}
 
       try:
