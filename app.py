@@ -20,6 +20,8 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if session['username'] != "":
+        return redirect(url_for('user'))
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -52,10 +54,12 @@ def logout():
     session['logged_in'] = False
     session.pop('username', None)
     # session.pop('userid', None)
-    return redirect("login")
+    return redirect(url_for("login"))
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
+    if session['username'] != "":
+        return redirect(url_for('user'))
     try:
         if request.method == "POST":
             log("sys","POST REQUEST RECEIVED AT /register")
@@ -86,6 +90,8 @@ def register():
 
 @app.route('/verify', methods = ['GET', 'POST'])
 def verify():
+    if session['username'] != "":
+        return redirect(url_for('user'))
     if request.method == "GET" and request.args.get('code') != None:
         print "GET"
         # username = session['username']
@@ -174,12 +180,15 @@ def match():
         #     lookingFor = "Tutor"
         #print lookingFor
         #print "class list: "
-            className = request.form['class']
-            teacherName = request.form['teacher']
-            freesList = request.form['freesList']
-            tutor = pickTutor(className, teacherName, freesList)
-            addTutor(username, tutor)
-            addTutee(tutor, username)
+            try:
+                className = request.form['class']
+                teacherName = request.form['teacher']
+                freesList = request.form['freesList']
+                tutor = pickTutor(className, teacherName, freesList)
+                addTutor(username, tutor)
+                addTutee(tutor, username)
+            except:
+                print sys.exc_info()[0]
         #print classList
         #print classList['Pre-Calculus'][0]
 
