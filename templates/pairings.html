@@ -95,12 +95,12 @@
                                     	<th>Free Periods</th>
                                     </thead>
                                     <tbody>
-                                      {% for x in matches %}
+                                      {% for x in match %}
                                         <tr>
-                                        	<td>{{ matches[x] }}</td>
-                                          <td>Class</td>
-                                          <td>Teacher</td>
-                                        	<td>{{ getValue(matches[x], "frees") }}</td>
+                                        	<td>{{ x[0] }}</td>
+                                          <td>{{ x[1] }}</td>
+                                          <td>{{ x[2] }}</td>
+                                        	<td>{{ getValue(x[0], "frees") }}</td>
                                         </tr>
                                       {% endfor %}
                                     </tbody>

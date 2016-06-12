@@ -185,8 +185,8 @@ def match():
                 teacherName = request.form['teacher']
                 freesList = request.form['freesList']
                 tutor = pickTutor(className, teacherName, freesList)
-                addTutor(username, tutor)
-                addTutee(tutor, username)
+                addTutor(username, (tutor, className, teacherName))
+                addTutee(tutor, (username, className, teacherName))
             except:
                 print sys.exc_info()[0]
         #print classList
@@ -257,12 +257,13 @@ def pairings():
         isTutor = user['isTutor']
         if isTutor:
             lookingFor = "Tutee"
-            matches = getValue(username, "tutees")
+            match = getValue(username, "tutees")
         else:
             lookingFor = "Tutor"
-            matches = getValue(username, "tutors")
+            match = getValue(username, "tutors")
+
         try:
-            return render_template("pairings.html", lookingFor = lookingFor, matches = matches)
+            return render_template("pairings.html", lookingFor = lookingFor, match = match)
 
         except:
             print sys.exc_info()[0]
