@@ -90,14 +90,16 @@
                                 <table class="table table-striped">
                                     <thead>
                                       <th>{{ lookingFor }}</th>
-                                      <th>subject</th>
+                                      <th>Class</th>
+                                      <th>Teacher</th>
                                     	<th>Free Periods</th>
                                     </thead>
                                     <tbody>
                                       {% for x in matches %}
                                         <tr>
                                         	<td>{{ matches[x] }}</td>
-                                          <td>subject</td>
+                                          <td>Class</td>
+                                          <td>Teacher</td>
                                         	<td>{{ getValue(matches[x], "frees") }}</td>
                                         </tr>
                                       {% endfor %}
