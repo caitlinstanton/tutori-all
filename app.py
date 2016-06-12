@@ -166,12 +166,12 @@ def match():
         username = session['username']
         user = getUser(username)
         isTutor = user['isTutor']
-
+        print isTutor
         if isTutor:
             lookingFor = "Tutee"
         else:
             lookingFor = "Tutor"
-            
+        print lookingFor
         #print "class list: "
 
         #print classList
@@ -188,9 +188,9 @@ def match():
         try:
             return render_template("match.html", lookingFor = lookingFor)
             #return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
-
         except:
             print "\n\n\n\n"
+            print "ERROR: "
             print sys.exc_info()[0]
     else:
         return redirect(url_for('login'))

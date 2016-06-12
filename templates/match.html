@@ -56,13 +56,13 @@
             <li class="active">
               <a href="/match">
                 <i class="ti-search"></i>
-                <p>Find a {{ lookingFor }}</p>
+                <p>Find a Tutor</p>
               </a>
             </li>
             <li>
               <a href="/pairings">
                 <i class="ti-view-list-alt"></i>
-                <p>{{ lookingFor }} List</p>
+                <p>Tutor List</p>
               </a>
             </li>
             <li>
@@ -90,6 +90,10 @@
                     <label>What do you need help in?</label>
                     <br>
 
+
+                      <input type="text" name="class" placeholder="Class"></input>
+                      <input type="text" name="teacher" placeholder="Teacher (Last Name)"></input>
+
                     <!-- <select id="class">
                       {{% for class in classList %}}
                       <option value="{{ class }}">{{ class }}</option>
@@ -101,7 +105,7 @@
                       {{% endfor %}}
                     </select> -->
 
-                    <select id="class">
+                    <!-- <select id="class">
                       <option value="regentsPhysics">Regents Physics</option>
                       <option value="regentsBiology">Regents Biology</option>
                       <option value="regentsChemistry">Regents Chemistry</option>
@@ -111,7 +115,7 @@
                       <option value="preCalculus">Pre-Calculus</option>
                     </select>
                     <select id="teacher">
-                    </select>
+                    </select> -->
 
 		    <!-- <select>
                       <option value="regentsPhysics">Regents Physics</option>
@@ -133,7 +137,7 @@
               </div>
 
               <div class="text-center">
-		<button type="submit" class="btn btn-info btn-fill btn-wd">Find a Tutor</button>
+		              <button type="submit" class="btn btn-info btn-fill btn-wd">Find a Tutor</button>
               </div>
               <div class="clearfix"></div>
 	    </form>
@@ -197,7 +201,13 @@
   <script src="../static/js/demo.js"></script>
 
   <!-- Double dropdown menu -->
-  <script>
+  <!-- <script>
+    for(var i=0;i< .length;i++)
+    {
+      var option=$('<option></option>').text(obj.Cars[i]['CarType']);
+      $('select').append(option);
+    }
+
     $("#class").change(function() {
 
       var $dropdown = $(this);
@@ -228,6 +238,6 @@
         });
 
       });
-      });
-  </script>
+      }); -->
+  <!-- </script> -->
 </html>
