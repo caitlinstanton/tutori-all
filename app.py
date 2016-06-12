@@ -165,15 +165,21 @@ def match():
     if 'username' in session:
         username = session['username']
         user = getUser(username)
+        print user
         isTutor = user['isTutor']
-        print isTutor
-        if isTutor:
-            lookingFor = "Tutee"
-        else:
-            lookingFor = "Tutor"
-        print lookingFor
+        #print isTutor
+        if not isTutor:
+        #     lookingFor = "Tutee"
+        # else:
+        #     lookingFor = "Tutor"
+        #print lookingFor
         #print "class list: "
-
+            className = request.form['class']
+            teacherName = request.form['teacher']
+            freesList = request.form['freesList']
+            tutor = pickTutor(className, teacherName, freesList)
+            addTutor(username, tutor)
+            addTutee(tutor, username)
         #print classList
         #print classList['Pre-Calculus'][0]
 
@@ -185,13 +191,16 @@ def match():
             # except:
             #     print sys.exc_info()[0]
             #     print "there was nothing"
-        try:
-            return render_template("match.html", lookingFor = lookingFor)
+            try:
+                return render_template("match.html")
             #return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
-        except:
-            print "\n\n\n\n"
-            print "ERROR: "
-            print sys.exc_info()[0]
+            except:
+                print sys.exc_info()[0]
+        else:
+            try:
+                return redirect(url_for('user'))
+            except:
+                print sys.exc_info()[0]
     else:
         return redirect(url_for('login'))
 
