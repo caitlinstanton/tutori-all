@@ -2,6 +2,7 @@ from security import *
 import time
 from globalVars import *
 from matchmaking import *
+from crediting import *
 
 #gets the current date in the mm-dd-yy format
 def getDate():
@@ -71,6 +72,7 @@ def submitSessionAsTutee(tutorName, tuteeName, length, date, location):
 
         else:
             #everything matches
+            addCredits(tutorName,date,int(length))
             sess["isConfirmed"] = True
             db.sessions.update({"sessionName":name},sess)
             #tutor["credits"]
@@ -135,6 +137,7 @@ def submitSessionAsTutor(tutorName, tuteeName, length, date, location):
         else:
             #everything matches
             #print "everything matched"
+            addCredits(tutorName,date,int(length))
             sess["isConfirmed"] = True
             db.sessions.update({"sessionName":name},sess)
             tutor["credits"]
