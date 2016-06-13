@@ -20,34 +20,35 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if session['username'] != "":
-        return redirect(url_for('user'))
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        print "start authenticate"
-        try:
-            logged_in = authenticate(username, password)
-        except:
-            print sys.exc_info()[0]
-        print "done authenticate"
-        if logged_in:
-            print "logged_in = true"
-            session['logged_in'] = True
-            print "add logged_in to session"
-            session['username'] = username
-            print "add username to session"
-            # session['userid'] = userid
+    if 'username' not in session:
+        if request.method == "POST":
+            username = request.form["username"]
+            password = request.form["password"]
+            print "start authenticate"
             try:
-                return redirect(url_for('user'))
-                #print "redirect to user settings page"
-                #return render_template("user.html")
+                logged_in = authenticate(username, password)
             except:
                 print sys.exc_info()[0]
+            print "done authenticate"
+            if logged_in:
+                print "logged_in = true"
+                session['logged_in'] = True
+                print "add logged_in to session"
+                session['username'] = username
+                print "add username to session"
+                # session['userid'] = userid
+                try:
+                    return redirect(url_for('user'))
+                    #print "redirect to user settings page"
+                    #return render_template("user.html")
+                except:
+                    print sys.exc_info()[0]
+            else:
+                return render_template("login.html", err="Incorrect password or username")
         else:
-            return render_template("login.html", err="Incorrect password or username")
+            return render_template("login.html")
     else:
-        return render_template("login.html")
+        return redirect(url_for('user'))
 
 @app.route("/logout")
 def logout():
@@ -58,9 +59,7 @@ def logout():
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
-    if session['username'] != "":
-        return redirect(url_for('user'))
-    try:
+    if 'username' not in session:
         if request.method == "POST":
             log("sys","POST REQUEST RECEIVED AT /register")
             username = request.form['username']
@@ -85,28 +84,29 @@ def register():
                 return redirect(url_for('verify'))
         else:
             return render_template("login.html")
-    except:
-        log("sys",sys.exc_info()[0])
+    else:
+        return redirect(url_for('user'))
 
 @app.route('/verify', methods = ['GET', 'POST'])
 def verify():
-    if session['username'] != "":
-        return redirect(url_for('user'))
-    if request.method == "GET" and request.args.get('code') != None:
-        print "GET"
-        # username = session['username']
-        code = request.args.get('code')
-        print "code: %s" % code
-        username = verifyUser(code)
-        print "username: %s" % username
-        if (username != "" and 'username' not in session):
-            session['username'] = username
-            #return render_template("user.html")
-            return redirect(url_for('user'))
+    if 'username' not in session:
+        if request.method == "GET" and request.args.get('code') != None:
+            print "GET"
+            # username = session['username']
+            code = request.args.get('code')
+            print "code: %s" % code
+            username = verifyUser(code)
+            print "username: %s" % username
+            if (username != "" and 'username' not in session):
+                session['username'] = username
+                #return render_template("user.html")
+                return redirect(url_for('user'))
+            else:
+                return render_template("verify.html", err="Error, verification code invalid")
         else:
-            return render_template("verify.html", err="Error, verification code invalid")
+            return render_template("verify.html")
     else:
-        return render_template("verify.html")
+        return redirect(url_for('user'))
 
 @app.route('/user')
 def user():
@@ -173,13 +173,8 @@ def match():
         user = getUser(username)
         print user
         isTutor = user['isTutor']
-        #print isTutor
+
         if not isTutor:
-        #     lookingFor = "Tutee"
-        # else:
-        #     lookingFor = "Tutor"
-        #print lookingFor
-        #print "class list: "
             try:
                 className = request.form['class']
                 teacherName = request.form['teacher']
@@ -189,20 +184,9 @@ def match():
                 addTutee(tutor, (username, className, teacherName))
             except:
                 print sys.exc_info()[0]
-        #print classList
-        #print classList['Pre-Calculus'][0]
 
-        # for subject in classList:
-        #     for teacher in subject:
-        #
-            # try:
-            #     print classList[x][0]
-            # except:
-            #     print sys.exc_info()[0]
-            #     print "there was nothing"
             try:
                 return render_template("match.html")
-            #return render_template("tutor.html", classList = classList, lookingFor = "tutor")#, lookingFor = "tutor")
             except:
                 print sys.exc_info()[0]
         else:
