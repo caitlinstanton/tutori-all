@@ -245,9 +245,53 @@ def sessions():
     else:
         return redirect(url_for('login'))
 
+@app.route('/adminSessions')
+def adminSessions():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isAdmin = user['isAdmin']
+        if isAdmin:
+            return render_template("adminSessions.html")
+        else:
+            return redirect(url_for('user'))
+    else:
+        return redirect(url_for('login'))
+
 @app.route('/submit')
 def submit():
-    return render_template("submit.html")
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        print user
+        isTutor = user['isTutor']
+        isAdmin = user['isAdmin']
+
+        if not isAdmin and isTutor:
+            lookingFor = "Tutee"
+        elif not isAdmin and not isTutor:
+            lookingFor = "Tutor"
+        else:
+            return redirect(url_for('user'))
+
+        if request.method == "POST":
+            email = request.form["email"]
+            date = request.form["date"]
+            startTime = request.form["startTime"]
+            endTime = request.form["endTime"]
+            location = request.form["place"]
+            length = (endTime - startTime)/60
+
+            if isTutor:
+                submitSessionAsTutor(username, email, length, date, location)
+            else:
+                submitSessionAsTutee(username, email, length, date, location)
+
+        else:
+            return render_template("submit.html", lookingFor = lookingFor)
+    else:
+        return redirect(url_for('login'))
+
 
 @app.route('/pairings')
 def pairings():
@@ -255,9 +299,14 @@ def pairings():
         username = session['username']
         user = getUser(username)
         isTutor = user['isTutor']
+        isAdmin = user['isAdmin']
+
         if isTutor:
             lookingFor = "Tutee"
             match = getValue(username, "tutees")
+        # elif(isAdmin):
+        #     lookingFor = "Tutor and Tutee"
+        #     match = getValue()
         else:
             lookingFor = "Tutor"
             match = getValue(username, "tutors")
@@ -270,6 +319,48 @@ def pairings():
     else:
         return redirect(url_for('login'))
 
+@app.route('/adminPairings')
+def adminPairings():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isAdmin = user['isAdmin']
+
+        users = db.users.find({})
+        print users
+
+        if isAdmin:
+            return render_template("adminPairings.html", users = users)
+        else:
+            return redirect(url_for('user'))
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/adminCredits')
+def adminCredits():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isAdmin = user['isAdmin']
+        if isAdmin:
+            return render_template("adminCredits.html")
+        else:
+            return redirect(url_for('user'))
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/adminTrimester')
+def adminTrimester():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isAdmin = user['isAdmin']
+        if isAdmin:
+            return render_template("adminTrimester.html")
+        else:
+            return redirect(url_for('user'))
+    else:
+        return redirect(url_for('login'))
 
 def dictToJSON(dictionary):
     with codecs.open('%s.json' % str(dictionary), 'w', 'utf8') as f:
