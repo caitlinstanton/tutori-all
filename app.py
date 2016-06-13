@@ -311,7 +311,7 @@ def adminPairings():
         isAdmin = user['isAdmin']
 
         users = db.users.find({})
-        print users
+        print users[0]['isAdmin']
 
         if isAdmin:
             return render_template("adminPairings.html", users = users)
