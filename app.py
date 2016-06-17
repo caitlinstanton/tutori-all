@@ -403,4 +403,5 @@ def dictToJSON(dictionary):
 
 if __name__ == '__main__':
     app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.run('0.0.0.0', port=8000)
