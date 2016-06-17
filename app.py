@@ -8,7 +8,9 @@ import json, codecs
 from crediting import *
 
 app = Flask(__name__)
-app.debug = True
+#app.debug = True
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SECRET_KEY'] = "SUPER DUPER REALLY SECRET"
 
 @app.route('/')
 def index():
@@ -232,7 +234,7 @@ def adminSessions():
         user = getUser(username)
         isAdmin = user['isAdmin']
 
-        sessions = db.sessions.find({})[0]
+        sessions = db.sessions.find({})
 
         if isAdmin:
             return render_template("adminSessions.html", sessions = sessions)
@@ -377,9 +379,9 @@ def adminChangeUser():
 
         actionDone = ""
 
-        if request.method == "POST" and isAdmin:
-            userChanging = request.form['username']
-            userAction = request.form['changeUser']
+        if request.method == "GET" and isAdmin and request.args.get('username') != None and request.args.get('changeUser') != None:
+            userChanging = request.args.get('username')
+            userAction = request.args.get('changeUser')
 
             if userAction == "makeTutor":
                 changeValue(userChanging, "isTutor", True)
@@ -403,6 +405,4 @@ def dictToJSON(dictionary):
 
 if __name__ == '__main__':
     #app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
-    app.config['SESSION_TYPE'] = 'filesystem'
-    app.config['SECRET_KEY'] = "SUPER DUPER REALLY SECRET"
     app.run('0.0.0.0', port=8000)
