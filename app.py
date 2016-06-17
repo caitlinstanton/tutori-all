@@ -325,8 +325,12 @@ def adminCredits():
         username = session['username']
         user = getUser(username)
         isAdmin = user['isAdmin']
+
+        users = db.users.find({})
+
+
         if isAdmin:
-            return render_template("adminCredits.html")
+            return render_template("adminCredits.html", users = users)
         else:
             return redirect(url_for('user'))
     else:
@@ -372,7 +376,7 @@ def adminChangeUser():
         isAdmin = user['isAdmin']
 
         actionDone = ""
-        
+
         if request.method == "POST" and isAdmin:
             userChanging = request.form['username']
             userAction = request.form['changeUser']
