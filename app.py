@@ -157,7 +157,7 @@ def user():
             # lookingFor = "Tutor"
             return render_template("tutee.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
         else:
-            return redirect(url_for('adminPairings'))
+            return redirect(url_for('adminSessions'))
     else:
         print "username is not in session"
         return redirect(url_for('login'))
