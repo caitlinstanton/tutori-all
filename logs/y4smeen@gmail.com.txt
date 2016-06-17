@@ -5,3 +5,4 @@ Sun Jun 12 11:36:01 2016: account verified successully
 Mon Jun 13 02:46:26 2016: an unknown user authentication error occurred
 Mon Jun 13 02:47:55 2016: account created
 Mon Jun 13 02:49:11 2016: account verified successully
+Fri Jun 17 07:20:04 2016: logged in

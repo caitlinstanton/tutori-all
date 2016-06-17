@@ -55,7 +55,7 @@
                         <p>Pairings List</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="/adminSessions">
                         <i class="ti-view-list-alt"></i>
                         <p>Sessions List</p>
@@ -73,7 +73,7 @@
                         <p>Update Trimester Dates</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="/adminChangeUser">
                         <i class="ti-timer"></i>
                         <p>Edit Users</p>
@@ -106,40 +106,91 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div>
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Submitted Tutoring Sessions</h4>
+                                <h4 class="title">Update Trimester Dates</h4>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-                                    <thead>
-                                      <th>Date</th>
-                                    	<th>Tutor</th>
-                                    	<th>Tutee</th>
-                                    	<th>Length</th>
-                                    	<th>Location</th>
-                                      <th>Confirmed?</th>
-                                    </thead>
-                                    <tbody>
-                                      {% for x in sessions %}
-                                      <tr>
-                                        <td>{{ sessions[x]["date"] }}</td>
-                                        <td>{{ sessions[x]["tutorName"] }}</td>
-                                        <td>{{ sessions[x]["tuteeName"] }}</td>
-                                        <td>{{ sessions[x]["tutorLength"] }}</td>
-                                        <td>{{ sessions[x]["tutorLocation"] }}</td>
-                                        {% if sessions[x]["isConfirmed"] %}
-                                        <td>Yes</td>
-                                        {% endif %}
-                                        {% if not sessions[x]["isConfirmed"] %}
-                                        <td>No</td>
-                                        {% endif %}
-                                      </tr>
-                                      {% endfor %}
-                                    </tbody>
-                                </table>
+                            <div class="content">
+                                <form action="/adminChangeUser">
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>First Trimester</label>
+                                                <div style="display: block, inline">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>User Email</label>
+
+                                                            <input type="email" name="username" id="username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Action</label>
+
+                                                            <input type="date" name="tri1end" id="endDate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Second Trimester</label>
+                                                <div style="display: block, inline">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Start Date</label>
+
+                                                            <input type="date" name="tri2start" id="startDate">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>End Date</label>
+
+                                                            <input type="date" name="tri2end" id="endDate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Third Trimester</label>
+                                                <div style="display: block, inline">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Start Date</label>
+
+                                                            <input type="date" name="tri3start" id="startDate">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>End Date</label>
+
+                                                            <input type="date" name="tri3end" id="endDate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" id="updateProfile" class="btn btn-info btn-fill btn-wd">Update Trimester</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -148,6 +199,7 @@
                 </div>
             </div>
         </div>
+
 
         <footer class="footer">
             <div class="container-fluid">

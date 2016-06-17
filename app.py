@@ -5,6 +5,7 @@ from matchmaking import *
 import sys
 from globalVars import *
 import json, codecs
+from crediting import *
 
 app = Flask(__name__)
 app.debug = True
@@ -141,27 +142,22 @@ def user():
         guidanceCounselor = user['guidanceCounselor']
         phonenumber = "1234567890"
         isTutor = user['isTutor']
+        isAdmin = user['isAdmin']
 
         print "isTutor: "
         print isTutor
         #status = "Tutee"
         #print "status: %s" % status
         ranking = 5
-        if isTutor:
+
+        if isTutor and not isAdmin:
             # lookingFor = "Tutee"
             return render_template("tutor.html", ranking = ranking, username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
-        else:
+        elif not isTutor and not isAdmin:
             # lookingFor = "Tutor"
             return render_template("tutee.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber)
-        #print "looking for: %s" % lookingFor
-        # try:
-        #     return render_template("user.html")
-        # except:
-        #     print sys.exc_info()[0]
-        # try:
-        #     return render_template("user.html", username = username, firstName = firstName, lastName = lastName, phonenumber = phonenumber, lookingFor = lookingFor)
-        # except:
-        #     print sys.exc_info()[0]
+        else:
+            return redirect(url_for('adminPairings'))
     else:
         print "username is not in session"
         return redirect(url_for('login'))
@@ -235,6 +231,9 @@ def adminSessions():
         username = session['username']
         user = getUser(username)
         isAdmin = user['isAdmin']
+
+        sessions = []
+
         if isAdmin:
             return render_template("adminSessions.html")
         else:
@@ -242,7 +241,7 @@ def adminSessions():
     else:
         return redirect(url_for('login'))
 
-@app.route('/submit')
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
     if 'username' in session:
         username = session['username']
@@ -333,18 +332,53 @@ def adminCredits():
     else:
         return redirect(url_for('login'))
 
-@app.route('/adminTrimester')
+@app.route('/adminTrimester', methods=['GET', 'POST'])
 def adminTrimester():
     if 'username' in session:
         username = session['username']
         user = getUser(username)
         isAdmin = user['isAdmin']
-        if isAdmin:
+        if request.method == "POST" and isAdmin:
+
+
+            trimesterList = getTrimesterList()
+            trimesterListChanges = []
+
+            trimesterListChanges.append(request.form['tri1start'])
+            trimesterListChanges.append(request.form['tri1end'])
+            trimesterListChanges.append(request.form['tri2start'])
+            trimesterListChanges.append(request.form['tri2end'])
+            trimesterListChanges.append(request.form['tri3start'])
+            trimesterListChanges.append(request.form['tri3end'])
+
+            count = 0
+            for trimester in trimesterListChanges:
+                if trimester != "":
+                    changeTrimester(trimesterList[count], trimester)
+                    count += 1
+
+        elif request.method == "GET" and isAdmin:
             return render_template("adminTrimester.html")
         else:
             return redirect(url_for('user'))
     else:
         return redirect(url_for('login'))
+
+@app.route('/adminChangeUser', methods=['GET', 'POST'])
+def adminChangeUser():
+    if 'username' in session:
+        username = session['username']
+        user = getUser(username)
+        isAdmin = user['isAdmin']
+        if request.method == "POST" and isAdmin:
+            return render_template("adminChangeUser.html")
+        elif request.method == "GET" and isAdmin:
+            return render_template("adminChangeUser.html")
+        else:
+            return redirect(url_for('user'))
+    else:
+        return redirect(url_for('login'))
+
 
 def dictToJSON(dictionary):
     with codecs.open('%s.json' % str(dictionary), 'w', 'utf8') as f:
