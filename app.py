@@ -402,6 +402,7 @@ def dictToJSON(dictionary):
         f.write(json.dumps(dictionary, sort_keys = True, ensure_ascii=False))
 
 if __name__ == '__main__':
-    app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
+    #app.secret_key = 'DONT PUT THIS ON GITHUB IF YOU WANT SECURITY'
     app.config['SESSION_TYPE'] = 'filesystem'
+    app.config['SECRET_KEY'] = "SUPER DUPER REALLY SECRET"
     app.run('0.0.0.0', port=8000)
