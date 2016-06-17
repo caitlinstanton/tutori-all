@@ -203,14 +203,14 @@ def sessions():
         if isTutor:
             lookingFor = "Tutee"
             try:
-                sessions = db.users.find({"tutorName": username})[0]
+                sessions = db.sessions.find({"tutorName": username})[0]
             except:
                 sessions = "NONE"
                 print sys.exc_info()[0]
         else:
             lookingFor = "Tutor"
             try:
-                sessions = db.users.find({"tuteeName": username})[0]
+                sessions = db.sessions.find({"tuteeName": username})[0]
             except:
                 sessions = "NONE"
                 print sys.exc_info()[0]
@@ -232,10 +232,10 @@ def adminSessions():
         user = getUser(username)
         isAdmin = user['isAdmin']
 
-        sessions = []
+        sessions = db.sessions.find({})[0]
 
         if isAdmin:
-            return render_template("adminSessions.html")
+            return render_template("adminSessions.html", sessions = sessions)
         else:
             return redirect(url_for('user'))
     else:
@@ -370,8 +370,21 @@ def adminChangeUser():
         username = session['username']
         user = getUser(username)
         isAdmin = user['isAdmin']
+
+        actionDone = ""
+        
         if request.method == "POST" and isAdmin:
-            return render_template("adminChangeUser.html")
+            userChanging = request.form['username']
+            userAction = request.form['changeUser']
+
+            if userAction == "makeTutor":
+                changeValue(userChanging, "isTutor", True)
+                actionDone = "Made user a tutor"
+            if userAction == "removeTutor":
+                changeValue(userChanging, "isTutor", False)
+                actionDone = "Made user not a tutor"
+
+            return render_template("adminChangeUser.html", actionDone = actionDone)
         elif request.method == "GET" and isAdmin:
             return render_template("adminChangeUser.html")
         else:

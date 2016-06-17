@@ -109,76 +109,33 @@
                     <div>
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Update Trimester Dates</h4>
+                                <h4 class="title">Edit User</h4>
                             </div>
+
+                            {{ actionDone }}
                             <div class="content">
                                 <form action="/adminChangeUser">
 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>First Trimester</label>
+                                                <!-- <label>Edit User</label> -->
                                                 <div style="display: block, inline">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>User Email</label>
 
-                                                            <input type="email" name="username" id="username">
+                                                            <input type="email" name="username" id="username" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Action</label>
 
-                                                            <input type="date" name="tri1end" id="endDate">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Second Trimester</label>
-                                                <div style="display: block, inline">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Start Date</label>
-
-                                                            <input type="date" name="tri2start" id="startDate">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>End Date</label>
-
-                                                            <input type="date" name="tri2end" id="endDate">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Third Trimester</label>
-                                                <div style="display: block, inline">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Start Date</label>
-
-                                                            <input type="date" name="tri3start" id="startDate">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>End Date</label>
-
-                                                            <input type="date" name="tri3end" id="endDate">
+                                                            <select name="changeUser">
+                                                                <option value="makeTutor">Make Tutor</option>
+                                                                <option value="removeTutor">Remove Tutor</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -187,7 +144,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" id="updateProfile" class="btn btn-info btn-fill btn-wd">Update Trimester</button>
+                                        <button type="submit" id="updateProfile" class="btn btn-info btn-fill btn-wd">Submit</button>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
