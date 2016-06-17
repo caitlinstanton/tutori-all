@@ -28,3 +28,5 @@ Fri Jun 10 04:27:01 2016: added regentsPhysics taught by wang
 Fri Jun 10 04:28:16 2016: added regentsPhysics taught by wang
 Fri Jun 10 04:31:09 2016: added regentsPhysics taught by wang
 Fri Jun 10 04:33:21 2016: added regentsPhysics taught by Wang
+Fri Jun 17 09:08:37 2016: account created
+Fri Jun 17 09:11:15 2016: account verified successully
