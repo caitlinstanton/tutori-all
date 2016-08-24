@@ -1,0 +1,15 @@
+Front End:
+| | Add a page that displays the text: "Information about your tutor has been sent to your email" or something along those lines 
+| | Add a page that displays the text: "A match was unable to be made. Please try again later, or look into group tutoring" or something
+| | Fix the bug where only one period and teacher can be updated at once. May require a corresponding backend change
+| | 
+
+Back End:
+| | Make matchmaking actually work
+| | Make adminPairings actually work
+| | Make adminSessions actually work
+| | coordinate corresponding change to the period and class addition button so it doesn't suck
+|x| listen to kpop
+
+
+
