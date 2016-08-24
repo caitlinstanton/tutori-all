@@ -9,6 +9,7 @@ Back End:
 | | Make adminPairings actually work
 | | Make adminSessions actually work
 | | coordinate corresponding change to the period and class addition button so it doesn't suck
+| | Add forgotten password function
 |x| listen to kpop
 
 
